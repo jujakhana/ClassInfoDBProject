@@ -2,12 +2,16 @@ package cbnu.inform.db;
 
 import java.io.IOException;
 
+import cbnu.inform.db.controller.RegisterLayoutController;
 import cbnu.inform.db.model.RegisterData;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -15,7 +19,7 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
-
+		
 	private ObservableList<RegisterData> regList = FXCollections.observableArrayList();
 	
 	/**
@@ -30,10 +34,13 @@ public class MainApp extends Application {
 		regList.add(new RegisterData("°­ÁÂµî·Ï"));
 	}
 	
+	/**
+	 * Returns the data as an observable list of Persons.
+	 * @return
+	 */
 	public ObservableList<RegisterData> getRegisterData(){
-		return this.regList;
+		return regList;
 	}
-	
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -74,21 +81,29 @@ public class MainApp extends Application {
 			AnchorPane mainOverview;		
 			mainOverview = (AnchorPane) loader.load();
 			
-			/*
-			FXMLLoader cloader = new FXMLLoader();
-			cloader.setLocation(MainApp.class.getResource("view/RegisterStudentLayout.fxml"));
-			AnchorPane cpane = (AnchorPane) cloader.load();
+			rootLayout.setCenter(mainOverview);
 			
+			
+			FXMLLoader cloader = new FXMLLoader();
+			cloader.setLocation(MainApp.class.getResource("view/RegisterLayout.fxml"));
+			AnchorPane regLayout = (AnchorPane) cloader.load();
+			
+			// MainLayout¿¡ RegisterLayout ¶ç¿ì±â
 			TabPane tpan = (TabPane)mainOverview.getChildren().get(0);
 			Tab tab = tpan.getTabs().get(0);
-			SplitPane spane = (SplitPane)tab.getContent();
-		
-			BorderPane p = (BorderPane)spane.getItems().get(1);
-			p.setCenter(cpane);
-			 */
+			tab.setContent(regLayout);
 			
-			rootLayout.setCenter(mainOverview);
-				
+			FXMLLoader sloader = new FXMLLoader();
+			sloader.setLocation(MainApp.class.getResource("view/RegisterStudentLayout.fxml"));
+			AnchorPane regStudentLayout = (AnchorPane) sloader.load();
+			
+			SplitPane spane = (SplitPane) regLayout.getChildren().get(0);
+			BorderPane bpane = (BorderPane)spane.getItems().get(1);
+			bpane.setCenter(regStudentLayout);
+			
+		//	MainOverviewController controller = loader.getController();
+			RegisterLayoutController controller = cloader.getController();
+			controller.setMainApp(this);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
