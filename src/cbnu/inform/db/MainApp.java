@@ -2,12 +2,12 @@ package cbnu.inform.db;
 
 import java.io.IOException;
 
+import cbnu.inform.db.model.RegisterData;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -16,13 +16,31 @@ public class MainApp extends Application {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 
+	private ObservableList<RegisterData> regList = FXCollections.observableArrayList();
+	
+	/**
+	 * Constructor
+	 */
+	public MainApp(){
+		//add some initial data
+		regList.add(new RegisterData("학생등록"));
+		regList.add(new RegisterData("과목등록"));
+		regList.add(new RegisterData("교수등록"));
+		regList.add(new RegisterData("수강신청"));
+		regList.add(new RegisterData("강좌등록"));
+	}
+	
+	public ObservableList<RegisterData> getRegisterData(){
+		return this.regList;
+	}
+	
+	
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("ClassInfoDBProject_이다예");
 
 		initRootLayout();
-
 		showMainOverview();
 	}
 
@@ -56,6 +74,7 @@ public class MainApp extends Application {
 			AnchorPane mainOverview;		
 			mainOverview = (AnchorPane) loader.load();
 			
+			/*
 			FXMLLoader cloader = new FXMLLoader();
 			cloader.setLocation(MainApp.class.getResource("view/RegisterStudentLayout.fxml"));
 			AnchorPane cpane = (AnchorPane) cloader.load();
@@ -63,15 +82,11 @@ public class MainApp extends Application {
 			TabPane tpan = (TabPane)mainOverview.getChildren().get(0);
 			Tab tab = tpan.getTabs().get(0);
 			SplitPane spane = (SplitPane)tab.getContent();
-		//	AnchorPane ppane = (AnchorPane)spane.getItems().get(1);
-			
-			//spane.getItems().set(1, cpane);
-			//(AnchorPane)spane.getItems().get(1) = cpane;
 		
-			//spane.getItems().set(1, cpane);
 			BorderPane p = (BorderPane)spane.getItems().get(1);
 			p.setCenter(cpane);
-		
+			 */
+			
 			rootLayout.setCenter(mainOverview);
 				
 			
