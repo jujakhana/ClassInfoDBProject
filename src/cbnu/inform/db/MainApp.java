@@ -68,8 +68,8 @@ public class MainApp extends Application {
 			//spane.getItems().set(1, cpane);
 			//(AnchorPane)spane.getItems().get(1) = cpane;
 		
-			spane.getItems().set(1, cpane);
-			ppane.resize(primaryStage.getWidth(), primaryStage.getHeight());
+			//spane.getItems().set(1, cpane);
+			//ppane.resize(primaryStage.getWidth(), primaryStage.getHeight());
 			rootLayout.setCenter(mainOverview);
 			
 			System.out.println(ppane.getId());
