@@ -33,7 +33,7 @@
 }
 
 .table-view .column-header-background {
-    -fx-background-color: transparent;
+    -fx-background-color: transparent;   
 }
 
 .table-view .column-header, .table-view .filler {

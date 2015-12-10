@@ -57,23 +57,23 @@ public class MainApp extends Application {
 			mainOverview = (AnchorPane) loader.load();
 			
 			FXMLLoader cloader = new FXMLLoader();
-			cloader.setLocation(MainApp.class.getResource("view/RegisterMainLayout.fxml"));
+			cloader.setLocation(MainApp.class.getResource("view/RegisterStudentLayout.fxml"));
 			AnchorPane cpane = (AnchorPane) cloader.load();
 			
 			TabPane tpan = (TabPane)mainOverview.getChildren().get(0);
 			Tab tab = tpan.getTabs().get(0);
 			SplitPane spane = (SplitPane)tab.getContent();
-			AnchorPane ppane = (AnchorPane)spane.getItems().get(1);
+		//	AnchorPane ppane = (AnchorPane)spane.getItems().get(1);
 			
 			//spane.getItems().set(1, cpane);
 			//(AnchorPane)spane.getItems().get(1) = cpane;
 		
 			//spane.getItems().set(1, cpane);
-			//ppane.resize(primaryStage.getWidth(), primaryStage.getHeight());
+			BorderPane p = (BorderPane)spane.getItems().get(1);
+			p.setCenter(cpane);
+		
 			rootLayout.setCenter(mainOverview);
-			
-			System.out.println(ppane.getId());
-			
+				
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
