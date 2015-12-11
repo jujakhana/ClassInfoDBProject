@@ -10,7 +10,7 @@ import javafx.beans.property.StringProperty;
  * Model class for a Apply Student
  * 
  */
-public class StudentApplyment {
+public class RegisterStudent {
 
 	private final StringProperty studentName;
 	private final IntegerProperty studentNumber;
@@ -22,7 +22,7 @@ public class StudentApplyment {
 	 * Default constructor.
 	 * Constuctor with some initial data.
 	 */
-	public StudentApplyment(){
+	public RegisterStudent(){
 		this.studentName = new SimpleStringProperty();
 		this.studentNumber = new SimpleIntegerProperty();
 		this.studentMajor = new SimpleStringProperty();
