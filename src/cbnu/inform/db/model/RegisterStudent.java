@@ -7,7 +7,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- * Model class for a Apply Student
+ * Model class for a Register Student
  * 
  */
 public class RegisterStudent {

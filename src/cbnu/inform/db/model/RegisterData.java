@@ -18,7 +18,6 @@ public class RegisterData {
 		return regListProperty().get();
 	}
 	
-
 	public final void setRegList(final java.lang.String regList) {
 		this.regList.set(regList);
 	}
