@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbnu.inform.db.controller.SearchLayoutController">
    <children>
-      <SplitPane dividerPositions="0.5" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" pickOnBounds="false" prefHeight="600.0" prefWidth="1000.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.1" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" pickOnBounds="false" prefHeight="600.0" prefWidth="1000.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="990.0">
                <children>
@@ -27,11 +27,11 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ComboBox prefWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <TextField prefHeight="33.0" prefWidth="113.0" GridPane.columnIndex="2" />
-                        <Button mnemonicParsing="false" text="  검색  " GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="147.0" text="전체보기" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <ComboBox fx:id="firstComboBox" onAction="#setSecondComboBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <ComboBox fx:id="secondComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <TextField fx:id="textField" prefHeight="33.0" prefWidth="113.0" GridPane.columnIndex="2" />
+                        <Button fx:id="searchButton" mnemonicParsing="false" text="  검색  " GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="allSearchButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="147.0" text="전체보기" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                      </children>
                      <padding>
                         <Insets top="5.0" />

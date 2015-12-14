@@ -51,10 +51,14 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 	@FXML
 	private void initialize(){
 		//Initialize the RegisterStudentLayoutController
+		
 	}
 	
-		
-	private void getRegisterLayoutDetails(){
+	/**
+	 * Called when the user clicks on the delete button
+	 */
+	@FXML
+	private void handleRegisterButton(){
 		
 	}
 

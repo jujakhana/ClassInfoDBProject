@@ -13,16 +13,16 @@ import javafx.scene.layout.AnchorPane;
 public class RegisterApplyLayoutController implements IRegisterLayout {
 
 	@FXML
-	TextField studentName;
+	TextField studentNameTextField;
 	
 	@FXML
-	TextField studentNumber;
+	TextField studentNumberTextField;
 	
 	@FXML
-	TextField lectureName;
+	TextField lectureNameTextField;
 	
 	@FXML
-	TextField lectureNumber;
+	TextField lectureNumberTextField;
 	
 	@FXML
 	Button registerButton;

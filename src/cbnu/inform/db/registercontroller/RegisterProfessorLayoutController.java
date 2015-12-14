@@ -14,16 +14,16 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 
 	
 	@FXML
-	TextField professorNumber;
+	TextField professorNumberTextField;
 	
 	@FXML
-	TextField professorName;
+	TextField professorNameTextField;
 	
 	@FXML
-	TextField professorMajor;
+	TextField professorMajorTextField;
 	
 	@FXML
-	TextField professorDivision;
+	TextField professorDivisionTextField;
 	
 	@FXML
 	Button registerButton;
