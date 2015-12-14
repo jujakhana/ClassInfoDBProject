@@ -3,12 +3,32 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class RegisterProfessorLayoutController implements IRegisterLayout {
 
+	
+	@FXML
+	TextField professorNumber;
+	
+	@FXML
+	TextField professorName;
+	
+	@FXML
+	TextField professorMajor;
+	
+	@FXML
+	TextField professorDivision;
+	
+	@FXML
+	Button registerButton;
+	
+	
 	@Override
 	public void setView(SplitPane pane) {
 		// TODO Auto-generated method stub
