@@ -28,6 +28,22 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 	@FXML
 	Button registerButton;
 	
+	private String professorNumber;
+	private String professorName;
+	private String professorMajor;
+	private String professorDivision;
+	
+	/**
+	 * Called when the user clicks on the register button
+	 */
+	@FXML
+	private void handleRegisterButton(){
+		professorNumber = professorNumberTextField.getText();
+		professorName = professorNameTextField.getText();
+		professorMajor = professorMajorTextField.getText();
+		professorDivision = professorDivisionTextField.getText();
+		System.out.println("교수버튼");
+	}
 	
 	@Override
 	public void setView(SplitPane pane) {

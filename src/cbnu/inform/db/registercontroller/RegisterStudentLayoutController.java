@@ -1,11 +1,12 @@
 package cbnu.inform.db.registercontroller;
 
 import java.io.IOException;
-import java.lang.reflect.AnnotatedArrayType;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.log.InvalidDataCheck;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -30,10 +31,13 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 	@FXML
 	private TextField collegeTextField;
 	
+	@FXML
+	private Button registerButton;
+	
 	private MainApp mainApp;
 	
 	private String studentName;
-	private int studentNumber;
+	private String studentNumber;
 	private String studentMajor;
 	private String studentGrade;
 	private String studentCollege;
@@ -55,11 +59,18 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 	}
 	
 	/**
-	 * Called when the user clicks on the delete button
+	 * Called when the user clicks on the register button
 	 */
 	@FXML
 	private void handleRegisterButton(){
+	
+		studentName = nameTextField.getText();
+		studentNumber = numberTextField.getText();
+		studentMajor = majorTextField.getText();
+		studentGrade = gradeTextField.getText();
+		studentCollege = collegeTextField.getText();
 		
+		System.out.println("학생버튼");
 	}
 
 	@Override

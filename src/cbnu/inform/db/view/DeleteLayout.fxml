@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbnu.inform.db.controller.DeleteLayoutController">
    <children>
       <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
@@ -36,32 +35,32 @@
          <children>
             <Label styleClass="label-bright" text="학번 : " GridPane.rowIndex="1" />
             <Label styleClass="label-bright" text="&lt;학생삭제&gt;" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <TextField styleClass="text-field" stylesheets="@DarkTheme.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="studentNumberTextField" styleClass="text-field" stylesheets="@DarkTheme.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label styleClass="label-bright" text="&lt;교과삭제&gt;" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
             <Label styleClass="label-bright" text="교과번호 : " GridPane.rowIndex="4">
                <padding>
                   <Insets left="10.0" right="5.0" />
                </padding>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="lectureNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label styleClass="label-bright" text="&lt;교수삭제&gt;" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
             <Label styleClass="label-bright" text="교수번호 : " GridPane.rowIndex="7" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="professorNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <Label styleClass="label-bright" text="&lt;수강취소&gt;" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
             <Label styleClass="label-bright" text="교과번호 : " GridPane.rowIndex="10" />
             <Label styleClass="label-bright" text="학생 학번 : " GridPane.columnIndex="2" GridPane.rowIndex="10" />
             <Label styleClass="label-bright" text="&lt;강좌취소&gt;" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
             <Label styleClass="label-bright" text="교수번호 : " GridPane.rowIndex="13" />
             <Label styleClass="label-bright" text="교과번호 : " GridPane.columnIndex="2" GridPane.rowIndex="13" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="13" />
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="10" />
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="13" />
-            <Button mnemonicParsing="false" text="삭제" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="삭제" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" text="삭제" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" text="삭제" GridPane.columnIndex="4" GridPane.rowIndex="10" />
-            <Button mnemonicParsing="false" text="삭제" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+            <TextField fx:id="classLectureNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="applyProfessorNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <TextField fx:id="classStudentNumberTextField" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+            <TextField fx:id="applyLectureNumberTextField" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+            <Button mnemonicParsing="false" onAction="#HandleStudentDelButton" text="삭제" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#HandleLectureDelButton" text="삭제" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#HandleProfessorDelButton" text="삭제" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#HandleClassDelButton" text="삭제" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+            <Button mnemonicParsing="false" onAction="#HandleApplyDelButton" text="삭제" GridPane.columnIndex="4" GridPane.rowIndex="13" />
          </children>
       </GridPane>
    </children>

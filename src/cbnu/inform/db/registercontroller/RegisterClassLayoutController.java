@@ -12,30 +12,53 @@ import javafx.scene.layout.AnchorPane;
 
 public class RegisterClassLayoutController implements IRegisterLayout {
 
-	
 	@FXML
 	TextField professorNameTextField;
-	
+
 	@FXML
 	TextField professorNumberTextField;
-	
+
 	@FXML
 	TextField lectureNameTextField;
-	
+
 	@FXML
 	TextField lectureNumberTextField;
-	
+
 	@FXML
 	TextField classTimeTextField;
-	
+
 	@FXML
 	TextField classCreditTextField;
-	
+
 	@FXML
 	TextField classLimitTextField;
-	
+
 	@FXML
 	Button registerButton;
+
+	private String professorName;
+	private String professorNumber;
+	private String lectureName;
+	private String lectureNumber;
+	private String classTime;
+	private String classCredit;
+	private String classLimit;
+	
+	
+	/**
+	 * Called when the user clicks on the register button
+	 */
+	@FXML
+	private void handleRegisterButton(){
+		professorName = professorNameTextField.getText();
+		professorNumber = professorNumberTextField.getText();
+		lectureNumber = lectureNumberTextField.getText();
+		lectureName = lectureNameTextField.getText();
+		classTime = classTimeTextField.getText();
+		classCredit = classCreditTextField.getText();
+		classLimit = classLimitTextField.getText();
+		System.out.println("수강버튼");
+	}
 	
 	
 	@Override

@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="400.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="400.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbnu.inform.db.registercontroller.RegisterClassLayoutController">
    <children>
       <GridPane layoutX="26.0" layoutY="43.0" vgap="15.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
         <columnConstraints>
@@ -27,17 +27,17 @@
             <Label styleClass="label-bright" text="교수번호" GridPane.rowIndex="1" />
             <Label styleClass="label-bright" text="교과목명" GridPane.rowIndex="2" />
             <Label styleClass="label-bright" text="교과번호" GridPane.rowIndex="3" />
-            <TextField styleClass="text-field" stylesheets="@DarkTheme.css" GridPane.columnIndex="1" />
-            <TextField styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="professorNameTextField" styleClass="text-field" stylesheets="@DarkTheme.css" GridPane.columnIndex="1" />
+            <TextField fx:id="professorNumberTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="lectureNameTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="lectureNumberTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label styleClass="label-bright" text="수업시간" GridPane.rowIndex="4" />
             <Label styleClass="label-bright" text="학점" GridPane.rowIndex="5" />
             <Label styleClass="label-bright" text="정원" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" text="등록" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+            <TextField fx:id="classTimeTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="classCreditTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="classLimitTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterButton" text="등록" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
          </children>
       </GridPane>
       <Label layoutX="14.0" layoutY="14.0" styleClass="label-bright" text="강좌 등록" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">

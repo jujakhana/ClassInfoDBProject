@@ -11,7 +11,7 @@
 
 <AnchorPane focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbnu.inform.db.controller.SearchLayoutController">
    <children>
-      <SplitPane dividerPositions="0.1" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" pickOnBounds="false" prefHeight="600.0" prefWidth="1000.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane fx:id="pane" dividerPositions="0.1" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" pickOnBounds="false" prefHeight="600.0" prefWidth="1000.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="990.0">
                <children>
@@ -30,8 +30,8 @@
                         <ComboBox fx:id="firstComboBox" onAction="#setSecondComboBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                         <ComboBox fx:id="secondComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                         <TextField fx:id="textField" prefHeight="33.0" prefWidth="113.0" GridPane.columnIndex="2" />
-                        <Button fx:id="searchButton" mnemonicParsing="false" text="  검색  " GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="allSearchButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="147.0" text="전체보기" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleSearchButton" text="  검색  " GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="allSearchButton" mnemonicParsing="false" onAction="#handleAllSearchButton" prefHeight="33.0" prefWidth="147.0" text="전체보기" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                      </children>
                      <padding>
                         <Insets top="5.0" />
@@ -39,22 +39,7 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <TableView editable="true" prefHeight="508.0" prefWidth="1000.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columns>
-                      <TableColumn prefWidth="216.0" text="C1" />
-                      <TableColumn prefWidth="172.0" text="C2" />
-                        <TableColumn prefWidth="186.0" text="Column X" />
-                        <TableColumn prefWidth="174.0" text="Column X" />
-                        <TableColumn prefWidth="247.0" text="Column X" />
-                    </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
-               </children>
-            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
         </items>
          <cursor>
             <Cursor fx:constant="DEFAULT" />

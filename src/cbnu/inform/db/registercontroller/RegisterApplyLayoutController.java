@@ -27,9 +27,27 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 	@FXML
 	Button registerButton;
 	
+	private String studentName;
+	private String studentNumber;
+	private String lectureName;
+	private String lectureNumber;
+	
+	/**
+	 * Called when the user clicks on the register button
+	 */
+	@FXML
+	private void handleRegisterButton(){
+		
+		studentName = studentNameTextField.getText();
+		studentNumber = studentNumberTextField.getText();
+		lectureNumber = lectureNumberTextField.getText();
+		lectureName = lectureNameTextField.getText();	
+		
+		System.out.println("°­ÁÂ¹öÆ°");
+	}
+	
 	@Override
 	public void setView(SplitPane pane) {
-		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		try {
 			FXMLLoader loader = new FXMLLoader();
