@@ -42,7 +42,6 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 		professorName = professorNameTextField.getText();
 		professorMajor = professorMajorTextField.getText();
 		professorDivision = professorDivisionTextField.getText();
-		System.out.println("교수버튼");
 	}
 	
 	@Override

@@ -42,7 +42,10 @@ public class DeleteLayoutController {
 	@FXML
 	private void HandleStudentDelButton(){
 		studentNumber = studentNumberTextField.getText();
-		InvalidDataCheck.isIntegerValid("학번", studentNumber);
+		if(InvalidDataCheck.isIntegerValid("학번", studentNumber))
+		{
+			//Valid Data;
+		}
 	}
 	
 	/**
@@ -51,6 +54,10 @@ public class DeleteLayoutController {
 	@FXML
 	private void HandleLectureDelButton(){
 		lectureNumber = lectureNumberTextField.getText();
+		if(InvalidDataCheck.isIntegerValid("교과삭제", lectureNumber))
+		{
+			//Valid Data;
+		}
 	}
 	
 	/**
@@ -59,6 +66,10 @@ public class DeleteLayoutController {
 	@FXML
 	private void HandleProfessorDelButton(){
 		professorNumber = professorNumberTextField.getText();
+		if(InvalidDataCheck.isIntegerValid("교수삭제", professorNumber))
+		{
+			//Valid Data;
+		}
 	}
 	
 	/**
@@ -68,6 +79,13 @@ public class DeleteLayoutController {
 	private void HandleClassDelButton(){
 		classLectureNumber = classLectureNumberTextField.getText();
 		classStudentNumber = classStudentNumberTextField.getText();
+		
+		if(InvalidDataCheck.isIntegerValid("수강취소", classLectureNumber)
+				&& InvalidDataCheck.isIntegerValid("수강취소", classStudentNumber))
+		{
+			//valid data
+		}
+		
 	}
 	
 	/**
@@ -77,6 +95,12 @@ public class DeleteLayoutController {
 	private void HandleApplyDelButton(){
 		applyProfessorNumber = applyProfessorNumberTextField.getText();
 		applyLectureNumber = applyLectureNumberTextField.getText();
+		
+		if(InvalidDataCheck.isIntegerValid("강좌취소", applyProfessorNumber)
+				&& InvalidDataCheck.isIntegerValid("강좌취소", applyLectureNumber))
+		{
+			//valid data;
+		}
 	}
 }
 

@@ -9,7 +9,7 @@ import javafx.beans.property.StringProperty;
  * Model class for a Register Lecture
  * 
  */
-public class RegisterLecture {
+public class LectureData {
 	private IntegerProperty lectureNumber;
 	private StringProperty lectureName;
 	private StringProperty lectureMajor;
@@ -19,7 +19,7 @@ public class RegisterLecture {
 	 * Default constructor.
 	 * Constuctor with some initial data.
 	 */
-	public RegisterLecture() {
+	public LectureData() {
 		// TODO Auto-generated constructor stub
 		lectureNumber = new SimpleIntegerProperty();
 		lectureName = new SimpleStringProperty();

@@ -57,7 +57,6 @@ public class RegisterClassLayoutController implements IRegisterLayout {
 		classTime = classTimeTextField.getText();
 		classCredit = classCreditTextField.getText();
 		classLimit = classLimitTextField.getText();
-		System.out.println("수강버튼");
 	}
 	
 	

@@ -1,102 +1,96 @@
 package cbnu.inform.db.model;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.IntegerPropertyBase;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class SearchStudentData {
+/**
+ * Model class for a Register Student
+ * 
+ */
+public class StudentData {
 
-	private StringProperty studentName;
-	private IntegerProperty studentNumber;
-	private StringProperty studentMajor;
-	private IntegerProperty studentGrade;
-	private IntegerProperty studentCollege;
+	private final StringProperty studentName;
+	private final IntegerProperty studentNumber;
+	private final StringProperty studentMajor;
+	private final IntegerProperty studentGrade;
+	private final StringProperty studentCollage;
 	
-	/**
-	 * The constructor
+	/*
+	 * Default constructor.
+	 * Constuctor with some initial data.
 	 */
-	public SearchStudentData() {
-		// TODO Auto-generated constructor stub
-		
-		studentName = new SimpleStringProperty();
-		studentNumber = new SimpleIntegerProperty();
-		studentMajor = new SimpleStringProperty();
-		studentGrade = new SimpleIntegerProperty();
-		studentCollege = new SimpleIntegerProperty();
+	public StudentData(){
+		this.studentName = new SimpleStringProperty();
+		this.studentNumber = new SimpleIntegerProperty();
+		this.studentMajor = new SimpleStringProperty();
+		this.studentGrade = new SimpleIntegerProperty();
+		this.studentCollage = new SimpleStringProperty();
 	}
-
+	
 	public final StringProperty studentNameProperty() {
 		return this.studentName;
 	}
 	
-
-	public final java.lang.String getStudentName() {
+	public final String getStudentName() {
 		return this.studentNameProperty().get();
 	}
 	
-
 	public final void setStudentName(final java.lang.String studentName) {
 		this.studentNameProperty().set(studentName);
 	}
 	
-
 	public final IntegerProperty studentNumberProperty() {
 		return this.studentNumber;
 	}
 	
-
 	public final int getStudentNumber() {
 		return this.studentNumberProperty().get();
 	}
 	
-
 	public final void setStudentNumber(final int studentNumber) {
 		this.studentNumberProperty().set(studentNumber);
 	}
 	
-
 	public final StringProperty studentMajorProperty() {
 		return this.studentMajor;
 	}
 	
-
 	public final java.lang.String getStudentMajor() {
 		return this.studentMajorProperty().get();
 	}
 	
-
 	public final void setStudentMajor(final java.lang.String studentMajor) {
 		this.studentMajorProperty().set(studentMajor);
 	}
 	
-
 	public final IntegerProperty studentGradeProperty() {
 		return this.studentGrade;
 	}
 	
-
 	public final int getStudentGrade() {
 		return this.studentGradeProperty().get();
 	}
 	
-
 	public final void setStudentGrade(final int studentGrade) {
 		this.studentGradeProperty().set(studentGrade);
 	}
 	
-
-	public final IntegerProperty studentCollegeProperty() {
-		return this.studentCollege;
+	public final StringProperty studentCollageProperty() {
+		return this.studentCollage;
 	}
 	
-
-	public final int getStudentCollege() {
-		return this.studentCollegeProperty().get();
+	public final String getStudentCollage() {
+		return this.studentCollageProperty().get();
 	}
 	
-
-	public final void setStudentCollege(final int studentCollege) {
-		this.studentCollegeProperty().set(studentCollege);
+	public final void setStudentCollage(final String studentCollage) {
+		this.studentCollageProperty().set(studentCollage);
 	}
+	
+	
+	
+	
 }

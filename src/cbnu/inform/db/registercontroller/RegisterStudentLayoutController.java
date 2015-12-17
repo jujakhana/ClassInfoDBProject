@@ -63,14 +63,11 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 	 */
 	@FXML
 	private void handleRegisterButton(){
-	
 		studentName = nameTextField.getText();
 		studentNumber = numberTextField.getText();
 		studentMajor = majorTextField.getText();
 		studentGrade = gradeTextField.getText();
-		studentCollege = collegeTextField.getText();
-		
-		System.out.println("학생버튼");
+		studentCollege = collegeTextField.getText();		
 	}
 
 	@Override

@@ -41,7 +41,6 @@ public class RegisterLectureLayoutController implements IRegisterLayout{
 		lectureName = lectureNameTextField.getText();
 		lectureMajor = lectureMajorTextField.getText();
 		lectureCollege = lectureCollegeTextField.getText();
-		System.out.println("과목버튼");
 	}
 	
 	@Override

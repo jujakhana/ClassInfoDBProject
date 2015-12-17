@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class RegisterApply {
+public class ApplyData {
 	private StringProperty studentName;
 	private IntegerProperty studentNumber;
 	private StringProperty lectureName;
@@ -15,7 +15,7 @@ public class RegisterApply {
 	 * Default constructor.
 	 * Constuctor with some initial data.
 	 */
-	public RegisterApply() {
+	public ApplyData() {
 		// TODO Auto-generated constructor stub
 		studentName = new SimpleStringProperty();
 		studentNumber = new SimpleIntegerProperty();

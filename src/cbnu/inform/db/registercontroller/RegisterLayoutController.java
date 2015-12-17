@@ -67,9 +67,6 @@ public class RegisterLayoutController {
 	}
 
 	private void showRegisterLayoutDetails(RegisterData reg) {
-
-		System.out.println(reg.getRegList());
-
 		if (reg.getRegList().equals("학생등록")) {
 			studentController.setView(splitPane);
 		} else if (reg.getRegList().equals("과목등록")) {
@@ -81,7 +78,6 @@ public class RegisterLayoutController {
 		} else if (reg.getRegList().equals("강좌등록")) {
 			applyController.setView(splitPane);
 		}
-
 	}
 
 }

@@ -48,7 +48,7 @@
             <TextField fx:id="professorNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <Label styleClass="label-bright" text="&lt;수강취소&gt;" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
             <Label styleClass="label-bright" text="교과번호 : " GridPane.rowIndex="10" />
-            <Label styleClass="label-bright" text="학생 학번 : " GridPane.columnIndex="2" GridPane.rowIndex="10" />
+            <Label styleClass="label-bright" text="학생학번 : " GridPane.columnIndex="2" GridPane.rowIndex="10" />
             <Label styleClass="label-bright" text="&lt;강좌취소&gt;" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
             <Label styleClass="label-bright" text="교수번호 : " GridPane.rowIndex="13" />
             <Label styleClass="label-bright" text="교과번호 : " GridPane.columnIndex="2" GridPane.rowIndex="13" />
