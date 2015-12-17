@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbnu.inform.db.controller.SearchLayoutController">
+<AnchorPane focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbnu.inform.db.controller.InfoLayoutController">
    <children>
       <SplitPane fx:id="pane" dividerPositions="0.1" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" pickOnBounds="false" prefHeight="600.0" prefWidth="1000.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="990.0">
                <children>
-                  <GridPane prefHeight="83.0" prefWidth="998.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <GridPane fx:id="pane" prefHeight="83.0" prefWidth="998.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,24 +30,31 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="전체선택" textAlignment="CENTER" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="학생이름" GridPane.rowIndex="1" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="학번" GridPane.columnIndex="1" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="학과" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="학년" GridPane.columnIndex="2" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="대학" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="수강과목" GridPane.columnIndex="3" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="교과번호" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="담당교수" GridPane.columnIndex="4" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="수업시간" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="수강인원" GridPane.columnIndex="5" />
-                        <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="수강정원" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" text="정보확인" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                        <CheckBox fx:id="allSelected" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressedAllSelected" styleClass="label-bright" text="전체선택" textAlignment="CENTER" />
+                        <CheckBox fx:id="studentNameBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="학생이름" GridPane.rowIndex="1" />
+                        <CheckBox fx:id="studentNumberBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="학번" GridPane.columnIndex="1" />
+                        <CheckBox fx:id="majorBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="학과" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <CheckBox fx:id="gradeBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="학년" GridPane.columnIndex="2" />
+                        <CheckBox fx:id="collegeBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="대학" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <CheckBox fx:id="lectureBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="수강과목" GridPane.columnIndex="3" />
+                        <CheckBox fx:id="lectureNumberBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="교과번호" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <CheckBox fx:id="professorBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="담당교수" GridPane.columnIndex="4" />
+                        <CheckBox fx:id="lectureTimeBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="수업시간" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <CheckBox fx:id="lecturePerson" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="수강인원" GridPane.columnIndex="5" />
+                        <CheckBox fx:id="lectureLimit" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="label-bright" text="수강정원" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <Button fx:id="infoButton" mnemonicParsing="false" onAction="#clickInfoButton" text="정보확인" GridPane.columnIndex="6" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="infoTableView" editable="true" prefHeight="505.0" prefWidth="998.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children></AnchorPane>
         </items>
          <cursor>
             <Cursor fx:constant="DEFAULT" />

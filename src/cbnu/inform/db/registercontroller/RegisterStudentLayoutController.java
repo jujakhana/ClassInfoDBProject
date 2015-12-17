@@ -81,7 +81,6 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 		try {
 			AnchorPane anchorPane = (AnchorPane) loader.load();
 			pane.getItems().set(1, anchorPane);
-			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
