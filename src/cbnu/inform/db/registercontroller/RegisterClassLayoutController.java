@@ -66,7 +66,7 @@ public class RegisterClassLayoutController implements IRegisterLayout {
 		// TODO Auto-generated method stub
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/RegisterClassLayout.fxml"));
+			loader.setLocation(MainApp.class.getResource("view/RegisterApplyLayout.fxml"));
 			AnchorPane anchorPane = (AnchorPane) loader.load();
 			pane.getItems().set(1, anchorPane);
 

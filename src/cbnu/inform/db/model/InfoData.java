@@ -35,152 +35,171 @@ public class InfoData {
 		lecturePerson = new SimpleIntegerProperty();
 		lectureLimit = new SimpleIntegerProperty();
 	}
-	
-	public final BooleanProperty allSelectedProperty() {
-		return this.allSelected;
-	}
-	
-	public final boolean isAllSelected() {
-		return this.allSelectedProperty().get();
-	}
-	
-	public final void setAllSelected(final boolean allSelected) {
-		this.allSelectedProperty().set(allSelected);
-	}
-	
-	public final BooleanProperty studentNameProperty() {
+
+	public final StringProperty studentNameProperty() {
 		return this.studentName;
 	}
 	
-	public final boolean isStudentName() {
+
+	public final java.lang.String getStudentName() {
 		return this.studentNameProperty().get();
 	}
 	
-	public final void setStudentName(final boolean studentName) {
+
+	public final void setStudentName(final java.lang.String studentName) {
 		this.studentNameProperty().set(studentName);
 	}
 	
-	public final BooleanProperty studentNumberProperty() {
+
+	public final IntegerProperty studentNumberProperty() {
 		return this.studentNumber;
 	}
 	
-	public final boolean isStudentNumber() {
+
+	public final int getStudentNumber() {
 		return this.studentNumberProperty().get();
 	}
 	
-	public final void setStudentNumber(final boolean studentNumber) {
+
+	public final void setStudentNumber(final int studentNumber) {
 		this.studentNumberProperty().set(studentNumber);
 	}
 	
-	public final BooleanProperty majorProperty() {
+
+	public final StringProperty majorProperty() {
 		return this.major;
 	}
 	
-	public final boolean isMajor() {
+
+	public final java.lang.String getMajor() {
 		return this.majorProperty().get();
 	}
 	
-	public final void setMajor(final boolean major) {
+
+	public final void setMajor(final java.lang.String major) {
 		this.majorProperty().set(major);
 	}
 	
-	public final BooleanProperty gradeProperty() {
+
+	public final IntegerProperty gradeProperty() {
 		return this.grade;
 	}
 	
-	public final boolean isGrade() {
+
+	public final int getGrade() {
 		return this.gradeProperty().get();
 	}
 	
-	public final void setGrade(final boolean grade) {
+
+	public final void setGrade(final int grade) {
 		this.gradeProperty().set(grade);
 	}
 	
-	public final BooleanProperty collegeProperty() {
+
+	public final StringProperty collegeProperty() {
 		return this.college;
 	}
 	
-	public final boolean isCollege() {
+
+	public final java.lang.String getCollege() {
 		return this.collegeProperty().get();
 	}
 	
-	public final void setCollege(final boolean college) {
+
+	public final void setCollege(final java.lang.String college) {
 		this.collegeProperty().set(college);
 	}
 	
-	public final BooleanProperty lectureProperty() {
+
+	public final StringProperty lectureProperty() {
 		return this.lecture;
 	}
 	
-	public final boolean isLecture() {
+
+	public final java.lang.String getLecture() {
 		return this.lectureProperty().get();
 	}
 	
-	public final void setLecture(final boolean lecture) {
+
+	public final void setLecture(final java.lang.String lecture) {
 		this.lectureProperty().set(lecture);
 	}
 	
-	public final BooleanProperty lectureNumberProperty() {
+
+	public final IntegerProperty lectureNumberProperty() {
 		return this.lectureNumber;
 	}
 	
-	public final boolean isLectureNumber() {
+
+	public final int getLectureNumber() {
 		return this.lectureNumberProperty().get();
 	}
 	
-	public final void setLectureNumber(final boolean lectureNumber) {
+
+	public final void setLectureNumber(final int lectureNumber) {
 		this.lectureNumberProperty().set(lectureNumber);
 	}
 	
-	public final BooleanProperty professorProperty() {
+
+	public final StringProperty professorProperty() {
 		return this.professor;
 	}
 	
-	public final boolean isProfessor() {
+
+	public final java.lang.String getProfessor() {
 		return this.professorProperty().get();
 	}
 	
-	public final void setProfessor(final boolean professor) {
+
+	public final void setProfessor(final java.lang.String professor) {
 		this.professorProperty().set(professor);
 	}
 	
-	public final BooleanProperty lectureTimeProperty() {
+
+	public final IntegerProperty lectureTimeProperty() {
 		return this.lectureTime;
 	}
 	
-	public final boolean isLectureTime() {
+
+	public final int getLectureTime() {
 		return this.lectureTimeProperty().get();
 	}
 	
-	public final void setLectureTime(final boolean lectureTime) {
+
+	public final void setLectureTime(final int lectureTime) {
 		this.lectureTimeProperty().set(lectureTime);
 	}
 	
-	public final BooleanProperty lecturePersonProperty() {
+
+	public final IntegerProperty lecturePersonProperty() {
 		return this.lecturePerson;
 	}
 	
-	public final boolean isLecturePerson() {
+
+	public final int getLecturePerson() {
 		return this.lecturePersonProperty().get();
 	}
 	
-	public final void setLecturePerson(final boolean lecturePerson) {
+
+	public final void setLecturePerson(final int lecturePerson) {
 		this.lecturePersonProperty().set(lecturePerson);
 	}
 	
-	public final BooleanProperty lectureLimitProperty() {
+
+	public final IntegerProperty lectureLimitProperty() {
 		return this.lectureLimit;
 	}
 	
-	public final boolean isLectureLimit() {
+
+	public final int getLectureLimit() {
 		return this.lectureLimitProperty().get();
 	}
 	
-	public final void setLectureLimit(final boolean lectureLimit) {
+
+	public final void setLectureLimit(final int lectureLimit) {
 		this.lectureLimitProperty().set(lectureLimit);
 	}
 	
-
-	 
-
+	
+	
 }
