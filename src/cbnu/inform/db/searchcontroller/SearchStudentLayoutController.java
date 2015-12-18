@@ -54,17 +54,21 @@ public class SearchStudentLayoutController {
 		return studentData;
 	}
 	
-	public void setSearchStudentLayout(){
-		StudentData s = new StudentData();
-		s.setStudentName("1");
-		s.setStudentNumber(2);
-		s.setStudentMajor("3");
-		s.setStudentGrade(4);
-		s.setStudentCollage("5");
-		studentData.add(s);
+	public void setSearchStudentLayout()
+	{
 		
+	}
+	
+	private void setSearchStudentTable(){
 		studentTable.setItems(studentData);
 	}
 	
+	public void addSearchStudentData(StudentData data){
+		studentData.add(data);
+	}
+	
+	public void clearSearchStudentTable(){
+		studentData.clear();
+	}
 	
 }

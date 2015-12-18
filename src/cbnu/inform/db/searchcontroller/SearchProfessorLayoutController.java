@@ -43,7 +43,11 @@ public class SearchProfessorLayoutController {
 		professorDivisionColumn.setCellValueFactory(cellData -> cellData.getValue().professorDivisionProperty());
 	}
 	
-	public void setProfessorTable(ProfessorData data){
+	public ObservableList<ProfessorData> getProfessorData(){
+		return professorData;
+	}
+	
+	public void setSearchProfessorLayout(){
 		
 	}
 	

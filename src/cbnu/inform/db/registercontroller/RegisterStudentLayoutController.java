@@ -84,5 +84,6 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 		}
 	}
 	
+	//private void set 
 	
 }

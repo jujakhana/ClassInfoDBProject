@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.sun.media.jfxmedia.events.NewFrameEvent;
+
+import cbnu.inform.db.model.InfoData;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.IntegerBinding;
 import javafx.collections.FXCollections;
@@ -42,20 +45,40 @@ public class InfoLayoutController {
 	CheckBox lectureLimit;
 	@FXML
 	Button infoButton;
+
 	@FXML
-	TableView infoTableView;
+	TableView<InfoData> infoTableView;
+	@FXML
+	TableColumn<InfoData, String> studentNameColumn;
+	@FXML
+	TableColumn<InfoData, Integer> studentNumberColumn;
+	@FXML
+	TableColumn<InfoData, String> majorColumn;
+	@FXML
+	TableColumn<InfoData, Integer> gradeColumn;
+	@FXML
+	TableColumn<InfoData, String> collegeColumn;
+	@FXML
+	TableColumn<InfoData, String> lectureColumn;
+	@FXML
+	TableColumn<InfoData, Integer> lectureNumberColumn;
+	@FXML
+	TableColumn<InfoData, String> professorColumn;
+	@FXML
+	TableColumn<InfoData, Integer> lectureTimeColumn;
+	@FXML
+	TableColumn<InfoData, Integer> lecturePersonColumn;
+	@FXML
+	TableColumn<InfoData, Integer> lectureLimitColumn;
 
-	private ObservableList<CheckBox> selectedCheckBoxes = FXCollections.observableArrayList();
-	private ObservableList<CheckBox> unselectedCheckBoxes = FXCollections.observableArrayList();
+	List<Boolean> checkStatus = new ArrayList<Boolean>();
+	List<TableColumn> listTableColumn = new ArrayList<TableColumn>();
 
-	private IntegerBinding numCheckBoxesSelected = Bindings.size(selectedCheckBoxes);
-
-	/**
-	 * Constructor
-	 */
 	public InfoLayoutController() {
 		// TODO Auto-generated constructor stub
-
+		for (int i = 0; i < 11; i++) {
+			checkStatus.add(i, false);
+		}
 	}
 
 	/**
@@ -64,111 +87,130 @@ public class InfoLayoutController {
 	 */
 	@FXML
 	private void initialize() {
-		configureCheckBox(studentNameBox);
-		configureCheckBox(studentNumberBox);
-		configureCheckBox(majorBox);
-		configureCheckBox(gradeBox);
-		configureCheckBox(collegeBox);
-		configureCheckBox(lectureBox);
-		configureCheckBox(lectureNumberBox);
-		configureCheckBox(professorBox);
-		configureCheckBox(lectureTimeBox);
-		configureCheckBox(lecturePerson);
-		configureCheckBox(lectureLimit);
-
-		infoButton.setDisable(true);
-
-		numCheckBoxesSelected.addListener((obs, oldSelectedCount, newSelectedCount) -> {
-			if (newSelectedCount.intValue() >= 1) {
-				infoButton.setDisable(false);
-			} else {
-				infoButton.setDisable(true);
-			}
-		});
+		setVisiableAllColumn(false);
+		
+		listTableColumn.add(0, studentNameColumn);
+		listTableColumn.add(1, studentNumberColumn);
+		listTableColumn.add(2, majorColumn);
+		listTableColumn.add(3, gradeColumn);
+		listTableColumn.add(4, collegeColumn);
+		listTableColumn.add(5, lectureColumn);
+		listTableColumn.add(6, lectureNumberColumn);
+		listTableColumn.add(7, professorColumn);
+		listTableColumn.add(8, lectureTimeColumn);
+		listTableColumn.add(9, lecturePersonColumn);
+		listTableColumn.add(10, lectureLimitColumn);
 	}
-	
+
 	/**
 	 * allSelected CheckBox Event
 	 */
 	@FXML
 	private void pressedAllSelected() {
-		if(allSelected.isSelected())
-		{
-			checkBoxAllSelected();
+		if (allSelected.isSelected()) {
+			setCheckBoxAllSelected(true);
 		} else {
-			checkBoxAllUnSelected();
-		}	
-	}
-
-	
-	/**
-	 * CheckBox Configuration & Event Binding
-	 * @param checkBox
-	 */
-	private void configureCheckBox(CheckBox checkBox) {
-		if (checkBox.isSelected()) {
-			selectedCheckBoxes.add(checkBox);
-		} else {
-			unselectedCheckBoxes.add(checkBox);
+			setCheckBoxAllSelected(false);
 		}
-
-		checkBox.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
-			if (isNowSelected) {
-				unselectedCheckBoxes.remove(checkBox);
-				selectedCheckBoxes.add(checkBox);
-			} else {
-				allSelected.setSelected(false);
-				selectedCheckBoxes.remove(checkBox);
-				unselectedCheckBoxes.add(checkBox);
-			}
-		});
 	}
-	
+
 	@FXML
-	private void clickInfoButton(){
-		Iterator<CheckBox> it = selectedCheckBoxes.iterator();
-		List<String> selectedList = new ArrayList<String>();
-		infoTableView.getColumns().clear();
-		while(it.hasNext())
-		{
-			CheckBox cb = it.next();
-			selectedList.add(cb.getText());
-			System.out.println(cb.getText());
-			TableColumn column = new TableColumn(cb.getText());
-			infoTableView.getColumns().add(column);
+	private void handleStudentCheckBox() {
+		checkStatus.set(0, studentNameBox.isSelected());
+	}
+
+	@FXML
+	private void handleStudentNumberCheckBox() {
+		checkStatus.set(1, studentNumberBox.isSelected());
+	}
+
+	@FXML
+	private void handleMajorCheckBox() {
+		checkStatus.set(2, majorBox.isSelected());
+	}
+
+	@FXML
+	private void handleGradeCheckBox() {
+		checkStatus.set(3, gradeBox.isSelected());
+	}
+
+	@FXML
+	private void handleCollegeCheckBox() {
+		checkStatus.set(4, collegeBox.isSelected());
+	}
+
+	@FXML
+	private void handleLectureCheckBox() {
+		checkStatus.set(5, lectureBox.isSelected());
+	}
+
+	@FXML
+	private void handleLectureNumberCheckBox() {
+		checkStatus.set(6, lectureNumberBox.isSelected());
+	}
+
+	@FXML
+	private void handleProfessorCheckBox() {
+		checkStatus.set(7, professorBox.isSelected());
+	}
+
+	@FXML
+	private void handleLectureTimeCheckBox() {
+		checkStatus.set(8, lectureTimeBox.isSelected());
+	}
+
+	@FXML
+	private void handleLecturePersonCheckBox() {
+		checkStatus.set(9, lecturePerson.isSelected());
+	}
+
+	@FXML
+	private void handleLectureLimitCheckBox() {
+		checkStatus.set(10, lectureLimit.isSelected());
+	}
+
+	@FXML
+	private void handleClickInfoButton() {
+		for (int i = 0; i < 11; i++) {
+			listTableColumn.get(i).setVisible(checkStatus.get(i));
 		}
-		setInfoTableView();
 	}
-	
-	private void setInfoTableView(){
+
+	private void setCheckBoxAllSelected(boolean set) {
+		studentNameBox.setSelected(set);
+		studentNumberBox.setSelected(set);
+		majorBox.setSelected(set);
+		gradeBox.setSelected(set);
+		collegeBox.setSelected(set);
+		lectureBox.setSelected(set);
+		lectureNumberBox.setSelected(set);
+		professorBox.setSelected(set);
+		lectureTimeBox.setSelected(set);
+		lecturePerson.setSelected(set);
+		lectureLimit.setSelected(set);
 		
+		for(int i = 0; i<11; i++)
+		{
+			checkStatus.set(i, set);
+		}
 	}
-	
-	private void checkBoxAllSelected(){
-		studentNameBox.setSelected(true);
-		studentNumberBox.setSelected(true);
-		majorBox.setSelected(true);
-		gradeBox.setSelected(true);
-		collegeBox.setSelected(true);
-		lectureBox.setSelected(true);
-		lectureNumberBox.setSelected(true);
-		professorBox.setSelected(true);
-		lectureTimeBox.setSelected(true);
-		lecturePerson.setSelected(true);
-		lectureLimit.setSelected(true);
-	}
-	
-	private void checkBoxAllUnSelected(){
-		studentNameBox.setSelected(false);
-		studentNumberBox.setSelected(false);
-		majorBox.setSelected(false);
-		gradeBox.setSelected(false);
-		collegeBox.setSelected(false);
-		lectureBox.setSelected(false);
-		lectureNumberBox.setSelected(false);
-		professorBox.setSelected(false);
-		lectureTimeBox.setSelected(false);
-		lecturePerson.setSelected(false);
-		lectureLimit.setSelected(false);
+
+	private void setVisiableAllColumn(boolean set) {
+		studentNameColumn.setVisible(set);
+		studentNumberColumn.setVisible(set);
+		majorColumn.setVisible(set);
+		gradeColumn.setVisible(set);
+		collegeColumn.setVisible(set);
+		lectureColumn.setVisible(set);
+		lectureNumberColumn.setVisible(set);
+		professorColumn.setVisible(set);
+		lectureTimeColumn.setVisible(set);
+		lecturePersonColumn.setVisible(set);
+		lectureLimitColumn.setVisible(set);
+		
+		for(int i = 0; i<11; i++)
+		{
+			checkStatus.set(i, set);
+		}
 	}
 }
