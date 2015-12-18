@@ -2,33 +2,23 @@ package cbnu.inform.db.dao;
 
 import java.sql.Connection;
 import java.sql.Statement;
-import java.util.Scanner;
+
+import cbnu.inform.db.model.StudentData;
 
 public class DaoEnrollmentStudent {
 
-	Connection dbConnection = null;
 	
-	public static void stuendtEnrollDao(Connection dbConnection){
+	public static void stuendtEnrollDao(StudentData studentData){
+		Connection dbConnection = null;
 		dbConnection = DaoDBConnection.tryConnect();
-		
-		Scanner sc = new Scanner(System.in);
-
-		System.out.print("name : ");
-		String name = sc.next();
-		System.out.print("idNumber : ");
-		int idNumber = sc.nextInt();
-		System.out.print("major : ");
-		String major = sc.next();
-		System.out.print("grade : ");
-		String grade = sc.next();
-		System.out.print("collage : ");
-		String collage = sc.next();
 		
 		Statement stmt =null;
 		
 		try{
 			stmt = dbConnection.createStatement();
-			int rowCnt = stmt.executeUpdate("insert into classinfo.enrollment(name,idNumber,major,grade,collage) values('"+name+"' ,"+idNumber+","+major+"' ,"+grade+","+collage+")");
+			int rowCnt = stmt.executeUpdate("insert into classinfo.enrollment(name,idNumber,major,grade,collage) values('"
+											+studentData.getStudentName()+"' ,"+studentData.getStudentNumber()
+											+","+studentData.getStudentMajor()+"' ,"+studentData.getStudentGrade()+","+studentData.getStudentCollage()+")");
 			
 			if(rowCnt == 1)
 			{
