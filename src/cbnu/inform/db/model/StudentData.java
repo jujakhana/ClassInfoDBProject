@@ -17,7 +17,7 @@ public class StudentData {
 	private final StringProperty studentMajor;
 	private final IntegerProperty studentGrade;
 	private final StringProperty studentCollage;
-	
+	public String Name;
 	/*
 	 * Default constructor.
 	 * Constuctor with some initial data.
@@ -34,7 +34,7 @@ public class StudentData {
 		return this.studentName;
 	}
 	
-	public final String getStudentName() {
+	public final java.lang.String getStudentName() {
 		return this.studentNameProperty().get();
 	}
 	
@@ -82,14 +82,13 @@ public class StudentData {
 		return this.studentCollage;
 	}
 	
-	public final String getStudentCollage() {
+	public final java.lang.String getStudentCollage() {
 		return this.studentCollageProperty().get();
 	}
 	
-	public final void setStudentCollage(final String studentCollage) {
+	public final void setStudentCollage(final java.lang.String studentCollage) {
 		this.studentCollageProperty().set(studentCollage);
 	}
-	
 	
 	
 	

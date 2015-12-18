@@ -3,7 +3,6 @@ package cbnu.inform.db.registercontroller;
 import cbnu.inform.db.controller.MainOverviewController;
 import cbnu.inform.db.model.RegisterData;
 import javafx.fxml.FXML;
-
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
