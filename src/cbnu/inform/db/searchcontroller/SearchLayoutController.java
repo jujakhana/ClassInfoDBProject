@@ -98,12 +98,10 @@ public class SearchLayoutController {
 		
 		if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo)
 				&& InvalidDataCheck.isStringValid("검색", secondSelectedInfo)
-				&& InvalidDataCheck.isStringValid("내용 입력", inputText))
-		{
+				&& InvalidDataCheck.isStringValid("내용 입력", inputText)){
 			if(firstSelectedInfo.equals("학생")){
 				FXMLLoader loader= setStudentSearchLayout();
 				SearchStudentLayoutController controller = loader.getController();
-				
 				controller.setSearchStudentLayout();
 			} else if(firstSelectedInfo.equals("교과")){
 				setLectureSearchLayout();

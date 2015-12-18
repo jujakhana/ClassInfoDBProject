@@ -66,15 +66,16 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 	 * Called when the user clicks on the register button
 	 */
 	@FXML
-	private void handleRegisterButton(){		
+	private void handleRegisterButton(){
+		StudentData studentData = new StudentData();
 		if(isInputValid())
 		{
-			studentName = nameTextField.getText();
-			studentNumber = numberTextField.getText();
-			studentMajor = majorTextField.getText();
-			studentGrade = gradeTextField.getText();
-			studentCollege = collegeTextField.getText();
-		}
+			studentData.setStudentName(nameTextField.getText());
+			studentData.setStudentNumber(Integer.parseInt(numberTextField.getText()));
+			studentData.setStudentMajor(majorTextField.getText());
+			studentData.setStudentGrade(Integer.parseInt(gradeTextField.getText()));
+			studentData.setStudentCollage(collegeTextField.getText());
+		}		
 	}
 
 	@Override

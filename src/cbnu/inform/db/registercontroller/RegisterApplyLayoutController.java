@@ -64,7 +64,6 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 		}
 	}
 	
-	
 	@Override
 	public void setView(SplitPane pane) {
 		// TODO Auto-generated method stub

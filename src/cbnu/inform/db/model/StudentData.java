@@ -17,7 +17,7 @@ public class StudentData {
 	private final StringProperty studentMajor;
 	private final IntegerProperty studentGrade;
 	private final StringProperty studentCollage;
-	public String Name;
+
 	/*
 	 * Default constructor.
 	 * Constuctor with some initial data.

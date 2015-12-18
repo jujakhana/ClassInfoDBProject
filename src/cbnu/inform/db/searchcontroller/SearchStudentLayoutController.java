@@ -56,7 +56,7 @@ public class SearchStudentLayoutController {
 	
 	public void setSearchStudentLayout()
 	{
-		
+		System.out.println("TEST");
 	}
 	
 	private void setSearchStudentTable(){
