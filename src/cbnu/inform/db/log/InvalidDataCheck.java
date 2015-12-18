@@ -29,7 +29,7 @@ public class InvalidDataCheck {
 		}
 
 		if (errorMessage.length() == 0)
-			return false;
+			return true;
 
 		errorMessage(errorMessage);
 		return false;

@@ -1,10 +1,11 @@
-package cbnu.inform.db.controller;
+package cbnu.inform.db.searchcontroller;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.log.InvalidDataCheck;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
@@ -32,7 +33,8 @@ public class SearchLayoutController {
 
 	private String firstSelectedInfo;
 	private String secondSelectedInfo;
-
+	private String inputText;
+	
 	public SearchLayoutController() {
 		// TODO Auto-generated constructor stub
 		firstComboBox = new ComboBox<String>();
@@ -47,7 +49,6 @@ public class SearchLayoutController {
 				add("대학");
 			}
 		};
-
 		professorList = new ArrayList<String>() {
 			{
 				add("교수명");
@@ -56,7 +57,6 @@ public class SearchLayoutController {
 				add("구분");
 			}
 		};
-
 		lectureList = new ArrayList<String>() {
 			{
 				add("교과번호");
@@ -94,35 +94,56 @@ public class SearchLayoutController {
 	private void handleSearchButton() {
 		firstSelectedInfo = firstComboBox.getSelectionModel().getSelectedItem();
 		secondSelectedInfo = secondComboBox.getSelectionModel().getSelectedItem();
+		inputText = textField.getText();
 		
-		if(firstSelectedInfo.equals("학생")){
-			setStudentSearchLayout();
-		} else if(firstSelectedInfo.equals("교과")){
-			setLectureSearchLayout();
-		}else {
-			setProfessorSearchLayout();
+		if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo)
+				&& InvalidDataCheck.isStringValid("검색", secondSelectedInfo)
+				&& InvalidDataCheck.isStringValid("내용 입력", inputText))
+		{
+			if(firstSelectedInfo.equals("학생")){
+				FXMLLoader loader= setStudentSearchLayout();
+				SearchStudentLayoutController controller = loader.getController();
+				
+				controller.setSearchStudentLayout();
+			} else if(firstSelectedInfo.equals("교과")){
+				setLectureSearchLayout();
+			}else if(firstSelectedInfo.equals("교수")){
+				setProfessorSearchLayout();
+			}	
 		}
-		
-		System.out.println(firstSelectedInfo);
 	}
 
 	@FXML
 	private void handleAllSearchButton() {
 		firstSelectedInfo = firstComboBox.getSelectionModel().getSelectedItem();
 		secondSelectedInfo = secondComboBox.getSelectionModel().getSelectedItem();
+		
+		//if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo)
+	//			&& InvalidDataCheck.isStringValid("검색", secondSelectedInfo))
+		{
+			if(firstSelectedInfo.equals("학생")){
+				setStudentSearchLayout();
+			} else if(firstSelectedInfo.equals("교과")){
+				setLectureSearchLayout();
+			}else if(firstSelectedInfo.equals("교수")){
+				setProfessorSearchLayout();
+			}	
+		}
 	}
 
-	private void setStudentSearchLayout() {
+	private FXMLLoader setStudentSearchLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("view/SearchStudentLayout.fxml"));
 			AnchorPane anchorPane;
 			anchorPane = (AnchorPane) loader.load();
 			pane.getItems().set(1, anchorPane);
+			return loader;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 	private void setLectureSearchLayout() {
