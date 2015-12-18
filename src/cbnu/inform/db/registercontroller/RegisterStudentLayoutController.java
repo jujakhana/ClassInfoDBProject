@@ -3,12 +3,14 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
-import cbnu.inform.db.log.InvalidDataCheck;
+import cbnu.inform.db.model.StudentData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 
 public class RegisterStudentLayoutController implements IRegisterLayout{
@@ -42,6 +44,8 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 	private String studentGrade;
 	private String studentCollege;
 	
+	private StudentData studentData;
+	
 	/**
 	 * Constructor
 	 */
@@ -62,12 +66,15 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 	 * Called when the user clicks on the register button
 	 */
 	@FXML
-	private void handleRegisterButton(){
-		studentName = nameTextField.getText();
-		studentNumber = numberTextField.getText();
-		studentMajor = majorTextField.getText();
-		studentGrade = gradeTextField.getText();
-		studentCollege = collegeTextField.getText();		
+	private void handleRegisterButton(){		
+		if(isInputValid())
+		{
+			studentName = nameTextField.getText();
+			studentNumber = numberTextField.getText();
+			studentMajor = majorTextField.getText();
+			studentGrade = gradeTextField.getText();
+			studentCollege = collegeTextField.getText();
+		}
 	}
 
 	@Override
@@ -84,6 +91,46 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 		}
 	}
 	
-	//private void set 
+	private boolean isInputValid() {
+        String errorMessage = "";
+
+        if (nameTextField.getText() == null || nameTextField.getText().length() == 0) {
+            errorMessage += "이름이 유효하지 않습니다.\n"; 
+        }
+        if (numberTextField.getText() == null || numberTextField.getText().length() == 0) {
+            errorMessage += "학번이 유효하지 않습니다.\n"; 
+        }else {
+            // try to parse the postal code into an int.
+            try {
+                Integer.parseInt(numberTextField.getText());
+            } catch (NumberFormatException e) {
+                errorMessage += "학번이 유효하지 않습니다(숫자 입력)!\n"; 
+            }
+        }
+        if (majorTextField.getText() == null || majorTextField.getText().length() == 0) {
+            errorMessage += "학과가 유효하지 않습니다.\n"; 
+        }
+        if (gradeTextField.getText() == null || gradeTextField.getText().length() == 0) {
+            errorMessage += "학년이 유효하지 않습니다.\n"; 
+        }
+        if (collegeTextField.getText() == null || collegeTextField.getText().length() == 0) {
+            errorMessage += "대학이 유효하지 않습니다.\n"; 
+        }
+    
+
+        if (errorMessage.length() == 0) {
+            return true;
+        } else {
+            // Show the error message.
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("데이터 오류");
+            alert.setHeaderText("정확한 정보를 입력해 주세요.");
+            alert.setContentText(errorMessage);
+
+            alert.showAndWait();
+
+            return false;
+        }
+    }
 	
 }

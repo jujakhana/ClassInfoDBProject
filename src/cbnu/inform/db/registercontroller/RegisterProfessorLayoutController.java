@@ -5,6 +5,8 @@ import java.io.IOException;
 import cbnu.inform.db.MainApp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
@@ -38,10 +40,12 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 	 */
 	@FXML
 	private void handleRegisterButton(){
-		professorNumber = professorNumberTextField.getText();
-		professorName = professorNameTextField.getText();
-		professorMajor = professorMajorTextField.getText();
-		professorDivision = professorDivisionTextField.getText();
+		if(isInputValid()){
+			professorNumber = professorNumberTextField.getText();
+			professorName = professorNameTextField.getText();
+			professorMajor = professorMajorTextField.getText();
+			professorDivision = professorDivisionTextField.getText();
+		}
 	}
 	
 	@Override
@@ -59,4 +63,43 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 		}
 	}
 
+	private boolean isInputValid() {
+        String errorMessage = "";
+
+        if (professorNumberTextField.getText() == null || professorNumberTextField.getText().length() == 0) {
+            errorMessage += "교수번호가 유효하지 않습니다.\n"; 
+        }else {
+            // try to parse the postal code into an int.
+            try {
+                Integer.parseInt(professorNumberTextField.getText());
+            } catch (NumberFormatException e) {
+                errorMessage += "교수번호가 유효하지 않습니다.(숫자 입력)!\n"; 
+            }
+        }
+        if (professorNameTextField.getText() == null || professorNameTextField.getText().length() == 0) {
+            errorMessage += "교수이름이 유효하지 않습니다.\n"; 
+        }
+        if (professorMajorTextField.getText() == null || professorMajorTextField.getText().length() == 0) {
+            errorMessage += "교수전공이 유효하지 않습니다.\n"; 
+        }
+        if (professorDivisionTextField.getText() == null || professorDivisionTextField.getText().length() == 0) {
+            errorMessage += "교수구분이 유효하지 않습니다.\n"; 
+        }
+    
+
+        if (errorMessage.length() == 0) {
+            return true;
+        } else {
+            // Show the error message.
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("데이터 오류");
+            alert.setHeaderText("정확한 정보를 입력해 주세요.");
+            alert.setContentText(errorMessage);
+
+            alert.showAndWait();
+
+            return false;
+        }
+    }
+	
 }
