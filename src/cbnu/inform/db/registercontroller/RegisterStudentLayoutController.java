@@ -3,6 +3,7 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.dao.DaoEnrollmentStudent;
 import cbnu.inform.db.model.StudentData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -75,7 +76,7 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 			studentData.setStudentMajor(majorTextField.getText());
 			studentData.setStudentGrade(Integer.parseInt(gradeTextField.getText()));
 			studentData.setStudentCollage(collegeTextField.getText());
-		}		
+		}
 	}
 
 	@Override
