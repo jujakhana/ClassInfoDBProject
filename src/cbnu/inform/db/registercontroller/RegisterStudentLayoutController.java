@@ -76,6 +76,8 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 			studentData.setStudentMajor(majorTextField.getText());
 			studentData.setStudentGrade(Integer.parseInt(gradeTextField.getText()));
 			studentData.setStudentCollage(collegeTextField.getText());
+		
+			DaoEnrollmentStudent.stuendtEnrollDao(studentData);
 		}
 	}
 
