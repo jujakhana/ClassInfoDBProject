@@ -52,13 +52,16 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 	 */
 	@FXML
 	private void handleRegisterButton(){
-		professorName = professorNameTextField.getText();
-		professorNumber = professorNumberTextField.getText();
-		lectureNumber = lectureNumberTextField.getText();
-		lectureName = lectureNameTextField.getText();
-		classTime = classTimeTextField.getText();
-		classCredit = classCreditTextField.getText();
-		classLimit = classLimitTextField.getText();
+		if(isInputValid())
+		{
+			professorName = professorNameTextField.getText();
+			professorNumber = professorNumberTextField.getText();
+			lectureNumber = lectureNumberTextField.getText();
+			lectureName = lectureNameTextField.getText();
+			classTime = classTimeTextField.getText();
+			classCredit = classCreditTextField.getText();
+			classLimit = classLimitTextField.getText();
+		}
 	}
 	
 	
