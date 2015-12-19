@@ -40,8 +40,6 @@ public class DaoSelectClassAll {
 				infoData.setProfessor(result.getString("pName"));
 				infoData.setLectureTime(result.getString("classTime"));
 				
-				System.out.println(result.getString("name"));
-			
 				infoDataList.add(infoData);
 			}
 			
@@ -49,7 +47,7 @@ public class DaoSelectClassAll {
 			System.out.println("q f" + e.getMessage());
 			return null;
 		}
-		System.out.println(infoDataList);
+		
 		return infoDataList;
 	}
 }
