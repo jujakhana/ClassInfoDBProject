@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.sun.media.jfxmedia.events.NewFrameEvent;
 
+import cbnu.inform.db.dao.DaoSelectClassAll;
 import cbnu.inform.db.model.InfoData;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.IntegerBinding;
@@ -68,7 +69,7 @@ public class InfoLayoutController {
 	@FXML
 	TableColumn<InfoData, String> lectureTimeColumn;
 
-	ObservableList<InfoData> infoData = FXCollections.observableArrayList();
+	ObservableList<InfoData> infoData;
 
 	List<Boolean> checkStatus = new ArrayList<Boolean>();
 	List<TableColumn> listTableColumn = new ArrayList<TableColumn>();
@@ -192,7 +193,10 @@ public class InfoLayoutController {
 		for (int i = 0; i < 9; i++) {
 			listTableColumn.get(i).setVisible(checkStatus.get(i));
 		}
-	}
+		
+		infoData = DaoSelectClassAll.selectClassAllDao();
+		infoTableView.setItems(infoData);
+	}	
 
 	private void setCheckBoxAllSelected(boolean set) {
 		studentNameBox.setSelected(set);
