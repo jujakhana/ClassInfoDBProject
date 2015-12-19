@@ -169,7 +169,7 @@ public class DeleteLayoutController {
 			Statement stmt =dbConnection.createStatement();
 			
 			int cnt = stmt.executeUpdate("delete from classinfo.apply where pNum = "+applyProfessorNumber
-					+" AND lecNum = "+applyLectureNumber);
+					+" AND pLecNum = "+applyLectureNumber);
 
 			if(cnt ==0){
 				System.out.println("삭제할 내용을 찾을 수 없습니다.");
