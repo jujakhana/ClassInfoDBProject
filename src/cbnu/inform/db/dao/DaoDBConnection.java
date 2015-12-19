@@ -8,9 +8,9 @@ public class DaoDBConnection {
 
 	public static Connection tryConnect() {
 
-		String url = "jdbc:mysql://localhost";
+		String url = "jdbc:mysql://localhost?useUnicode=true&characterEncoding=utf8";
 		String id = "root";
-		String password = "apmsetup";
+		String password = "gkdtkddntwk!";
 
 		Connection con = null;
 

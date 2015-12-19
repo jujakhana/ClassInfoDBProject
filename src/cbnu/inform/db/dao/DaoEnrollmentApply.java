@@ -2,6 +2,7 @@ package cbnu.inform.db.dao;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 import cbnu.inform.db.model.ApplyData;
@@ -13,13 +14,16 @@ public class DaoEnrollmentApply {
 		dbConnection = DaoDBConnection.tryConnect();
 
 		Statement stmt = null;
+
 		try {
 			stmt = dbConnection.createStatement();
-			int rowCnt = stmt.executeUpdate("insert into classinfo.apply(pName,pNum,pLecName,pLecNum,classTime,classCredit) values('"
+			int rowCnt = stmt.executeUpdate(
+					"insert into classinfo.apply(pName,pNum,pLecName,pLecNum,classTime,classCredit) values('"
 							+ toLatin1(applyData.getProfessorName()) + "' ," + applyData.getProfessorNumber() + ",'"
 							+ toLatin1(applyData.getLectureName()) + "' ," + applyData.getLectureNumber() + " ,'"
 							+ toLatin1(applyData.getClassTime()) + "' ," + applyData.getClassCredit() + ")");
-
+		
+			
 			if (rowCnt == 1) {
 				System.out.println("입력 성공");
 				return true;
@@ -28,10 +32,13 @@ public class DaoEnrollmentApply {
 				return false;
 			}
 
+			
 		} catch (Exception e) {
 			System.out.println("query fail");
 			return false;
 		}
+		
+	
 
 	}
 

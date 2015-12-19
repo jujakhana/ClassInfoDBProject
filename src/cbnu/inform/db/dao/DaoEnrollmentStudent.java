@@ -2,6 +2,7 @@ package cbnu.inform.db.dao;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 import cbnu.inform.db.log.AlertDialog;
@@ -15,6 +16,7 @@ public class DaoEnrollmentStudent {
 
 		Statement stmt = null;
 
+		ResultSet result = null;
 		try {
 			stmt = dbConnection.createStatement();
 			int rowCnt = stmt.executeUpdate("insert into classinfo.student(name,idNumber,major,grade,collage) values('"
@@ -37,6 +39,6 @@ public class DaoEnrollmentStudent {
 
 	private static String toLatin1(String str) throws UnsupportedEncodingException {
 
-		return new String(str.getBytes(), "iso-8859-1");
+		return new String(str.getBytes(), "utf-8");
 	}
 }

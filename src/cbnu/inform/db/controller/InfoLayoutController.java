@@ -68,7 +68,7 @@ public class InfoLayoutController {
 	@FXML
 	TableColumn<InfoData, String> lectureTimeColumn;
 
-	ObservableList<InfoData> infoData = FXCollections.observableArrayList();
+	ObservableList<InfoData> infoData;
 
 	List<Boolean> checkStatus = new ArrayList<Boolean>();
 	List<TableColumn> listTableColumn = new ArrayList<TableColumn>();
@@ -110,14 +110,10 @@ public class InfoLayoutController {
 		lectureTimeColumn.setCellValueFactory(cell -> cell.getValue().lectureTimeProperty());
 	}
 	
-	public ObservableList<InfoData> getPersonData() {
-        return infoData;
-    }
 	
-	public void setInfoData(InfoData data){
-		infoData.add(data);
-		
-		infoTableView.setItems(infoData);
+	public void setInfoData(ObservableList<InfoData> infoData){
+		this.infoData = infoData;
+		infoTableView.setItems(this.infoData);
 	}
 
 	/**

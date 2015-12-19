@@ -46,7 +46,7 @@ public class DaoSelectClassAll {
 			System.out.println("q f");
 			return null;
 		}
-			
+	
 		return infoDataList;
 	}
 }
