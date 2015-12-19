@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
 import cbnu.inform.db.log.AlertDialog;
+import cbnu.inform.db.dao.DaoEnrollmentClass;
 import cbnu.inform.db.model.ClassData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,7 +45,8 @@ public class RegisterClassLayoutController implements IRegisterLayout {
 			classData.setLectureName(lectureNameTextField.getText());
 			
 			//DB 데이터 입력하는 곳
-			
+		
+			DaoEnrollmentClass.classEnrollDao(classData);
 			setAllTextFieldClear();
 		}
 	}

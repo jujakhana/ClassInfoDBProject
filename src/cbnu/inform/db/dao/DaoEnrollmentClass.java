@@ -4,22 +4,20 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.Statement;
 
-import cbnu.inform.db.model.StudentData;
+import cbnu.inform.db.model.ClassData;
 
-public class DaoEnrollmentStudent {
+public class DaoEnrollmentClass {
 
-	
-	public static void stuendtEnrollDao(StudentData studentData){
+	public static void classEnrollDao(ClassData classData){
 		Connection dbConnection = null;
 		dbConnection = DaoDBConnection.tryConnect();
 		
 		Statement stmt =null;
-		
 		try{
 			stmt = dbConnection.createStatement();
-			int rowCnt = stmt.executeUpdate("insert into classinfo.student(name,idNumber,major,grade,collage) values('"
-											+toLatin1(studentData.getStudentName())+"' ,"+studentData.getStudentNumber()
-											+",'"+toLatin1(studentData.getStudentMajor())+"' ,"+studentData.getStudentGrade()+",'"+toLatin1(studentData.getStudentCollage())+"')");
+			int rowCnt = stmt.executeUpdate("insert into classinfo.professor(sName,sNumber,lecName,lecNumber) values('"
+											+toLatin1(classData.getStudentName())+"' ,"+classData.getStudentNumber()
+											+",'"+toLatin1(classData.getLectureName())+"' ,"+classData.getLectureNumber()+")");
 			
 			
 			if(rowCnt == 1)

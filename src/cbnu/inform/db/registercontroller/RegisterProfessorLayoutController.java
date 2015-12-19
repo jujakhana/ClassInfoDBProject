@@ -16,7 +16,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class RegisterProfessorLayoutController implements IRegisterLayout {
-
 	
 	@FXML
 	TextField professorNumberTextField;
@@ -47,7 +46,6 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 			
 			//DAO 이용해서 professor를 넘겨주면 됩니다.
 			DaoEnrollmentProfessor.proEnrollDao(professor);
-
 			setAllTextFieldClear();
 		}
 	}
@@ -71,13 +69,13 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 			AnchorPane anchorPane = (AnchorPane) loader.load();
 			pane.getItems().set(1, anchorPane);
 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+      } catch (IOException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+   }
 
-	private boolean isInputValid() {
+   private boolean isInputValid() {
         String errorMessage = "";
         if (professorNameTextField.getText() == null || professorNameTextField.getText().length() == 0) {
             errorMessage += "교수이름이 유효하지 않습니다.\n"; 
@@ -114,5 +112,5 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
             return false;
         }
     }
-	
+   
 }
