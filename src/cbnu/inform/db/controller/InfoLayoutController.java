@@ -98,7 +98,6 @@ public class InfoLayoutController {
 		listTableColumn.add(7, professorColumn);
 		listTableColumn.add(8, lectureTimeColumn);
 
-		/*
 		//data column initialize
 		studentNameColumn.setCellValueFactory(cell -> cell.getValue().studentNameProperty());
 		studentNumberColumn.setCellValueFactory(cell -> cell.getValue().studentNumberProperty().asObject());
@@ -109,8 +108,6 @@ public class InfoLayoutController {
 		lectureNumberColumn.setCellValueFactory(cell -> cell.getValue().lectureNumberProperty().asObject());
 		professorColumn.setCellValueFactory(cell -> cell.getValue().professorProperty());
 		lectureTimeColumn.setCellValueFactory(cell -> cell.getValue().lectureTimeProperty());
-
-		 */
 	}
 	
 	public ObservableList<InfoData> getPersonData() {

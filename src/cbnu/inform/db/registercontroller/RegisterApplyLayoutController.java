@@ -50,12 +50,18 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 			apply.setClassCredit(Integer.parseInt(classCreditTextField.getText()));
 			//DataBase...
 
-			DaoEnrollmentApply.applyEnrollDao(apply);
+			if(DaoEnrollmentApply.applyEnrollDao(apply))
+				AlertDialog.showAlert("강좌등록", "등록이 완료되었습니다.");	
+			else
+				AlertDialog.showAlert("강좌등록", "등록에 실패하였습니다.");	
 			
 			setAllTextFieldClear();
 		}
 	}
 	
+	/**
+	 * ApplyView's all TextField is clear
+	 */
 	private void setAllTextFieldClear()
 	{
 		professorNameTextField.clear();
@@ -64,10 +70,11 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 		lectureNameTextField.clear();
 		classTimeTextField.clear();
 		classCreditTextField.clear();
-
-		AlertDialog.showAlert("강좌등록", "등록이 완료되었습니다.");	
 	}
 	
+	/**
+	 * Set RegisterApplyLayout in SplitPane of RegisterLayout
+	 */
 	@Override
 	public void setView(SplitPane pane) {
 		// TODO Auto-generated method stub
@@ -84,6 +91,10 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 
 	}
 	
+	/**
+	 * Validates the user input in the text fields.
+	 * @return
+	 */
 	private boolean isInputValid() {
         String errorMessage = "";
 

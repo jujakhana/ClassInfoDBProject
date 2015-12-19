@@ -45,21 +45,29 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 			professor.setProfessorDivision(professorDivisionTextField.getText());
 			
 			//DAO 이용해서 professor를 넘겨주면 됩니다.
-			DaoEnrollmentProfessor.proEnrollDao(professor);
+			if(DaoEnrollmentProfessor.proEnrollDao(professor))
+				AlertDialog.showAlert("교수등록", "등록이 완료되었습니다.");	
+			else
+				AlertDialog.showAlert("교수등록", "등록에 실패하였습니다.");
 			setAllTextFieldClear();
 		}
 	}
 	
+	/**
+	 * ProfessorView's all TextField is clear
+	 */
 	private void setAllTextFieldClear()
 	{
 		professorNameTextField.clear();
 		professorNumberTextField.clear();
 		professorMajorTextField.clear();
 		professorDivisionTextField.clear();
-		AlertDialog.showAlert("교수등록", "등록이 완료되었습니다.");	
-		
 	}
 	
+	
+	/**
+	 * Set RegisterProfessorLayout in SplitPane of RegisterLayout
+	 */
 	@Override
 	public void setView(SplitPane pane) {
 		// TODO Auto-generated method stub
@@ -75,6 +83,10 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
       }
    }
 
+	/**
+	 * Validates the user input in the text fields.
+	 * @return
+	 */
    private boolean isInputValid() {
         String errorMessage = "";
         if (professorNameTextField.getText() == null || professorNameTextField.getText().length() == 0) {

@@ -71,12 +71,18 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 			studentData.setStudentGrade(Integer.parseInt(gradeTextField.getText()));
 			studentData.setStudentCollage(collegeTextField.getText());
 		
-			DaoEnrollmentStudent.stuendtEnrollDao(studentData);
+			if(DaoEnrollmentStudent.stuendtEnrollDao(studentData))
+				AlertDialog.showAlert("학생등록", "등록이 완료되었습니다.");	
+			else
+				AlertDialog.showAlert("학생등록", "등록에 실패하였습니다.");
 			
 			setAllTextFieldClear();
 		}
 	}
 	
+	/**
+	 * StudentView's all TextField is clear
+	 */
 	private void setAllTextFieldClear()
 	{
 		nameTextField.clear();
@@ -84,10 +90,11 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 		majorTextField.clear();
 		gradeTextField.clear();
 		collegeTextField.clear();
-		
-		AlertDialog.showAlert("학생등록", "등록이 완료되었습니다.");	
 	}
 
+	/**
+	 * Set RegisterStudentLayout in SplitPane of RegisterLayout
+	 */
 	@Override
 	public void setView(SplitPane pane) {
 		// TODO Auto-generated method stub
@@ -102,6 +109,10 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 		}
 	}
 	
+	/**
+	 * Validates the user input in the text fields.
+	 * @return
+	 */
 	private boolean isInputValid() {
         String errorMessage = "";
 

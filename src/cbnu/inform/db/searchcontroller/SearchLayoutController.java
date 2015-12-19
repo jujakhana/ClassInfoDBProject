@@ -27,6 +27,10 @@ public class SearchLayoutController {
 	@FXML
 	private TextField textField;
 
+	SearchLectureLayoutController lectureController;
+	SearchProfessorLayoutController professorContorller;
+	SearchStudentLayoutController studentController;
+	
 	private List<String> studentList;
 	private List<String> professorList;
 	private List<String> lectureList;
@@ -37,6 +41,11 @@ public class SearchLayoutController {
 	
 	public SearchLayoutController() {
 		// TODO Auto-generated constructor stub
+		
+		studentController = new SearchStudentLayoutController();
+		lectureController = new SearchLectureLayoutController();
+		professorContorller = new SearchProfessorLayoutController();
+		
 		firstComboBox = new ComboBox<String>();
 		secondComboBox = new ComboBox<String>();
 
@@ -101,15 +110,11 @@ public class SearchLayoutController {
 				&& InvalidDataCheck.isStringValid("내용 입력", inputText)){
 			
 			if(firstSelectedInfo.equals("학생")){
-				
-				FXMLLoader loader = setStudentSearchLayout();
-				SearchStudentLayoutController controller = loader.getController();
-				controller.setSearchStudentLayout();
-				
+				studentController.setStudentSearchLayout(pane);
 			} else if(firstSelectedInfo.equals("교과")){
-				setLectureSearchLayout();
+				lectureController.setLectureSearchLayout(pane);
 			}else if(firstSelectedInfo.equals("교수")){
-				setProfessorSearchLayout();
+				professorContorller.setProfessorSearchLayout(pane);
 			}	
 		}
 	}
@@ -122,56 +127,19 @@ public class SearchLayoutController {
 		if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo))
 		{
 			if(firstSelectedInfo.equals("학생")){
-				setStudentSearchLayout();
+				studentController.setStudentSearchLayout(pane);
 			} else if(firstSelectedInfo.equals("교과")){
-				setLectureSearchLayout();
+				lectureController.setLectureSearchLayout(pane);
 			}else if(firstSelectedInfo.equals("교수")){
-				setProfessorSearchLayout();
+				professorContorller.setProfessorSearchLayout(pane);
 			}	
 		}
 	}
 
-	private FXMLLoader setStudentSearchLayout() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/SearchStudentLayout.fxml"));
-			AnchorPane anchorPane;
-			anchorPane = (AnchorPane) loader.load();
-			pane.getItems().set(1, anchorPane);
-			return loader;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
+	
 
-	private void setLectureSearchLayout() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/SearchLectureLayout.fxml"));
-			AnchorPane anchorPane;
-			anchorPane = (AnchorPane) loader.load();
-			pane.getItems().set(1, anchorPane);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 
-	private void setProfessorSearchLayout() {
-		
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/SearchProfessorLayout.fxml"));
-			AnchorPane anchorPane;
-			anchorPane = (AnchorPane) loader.load();
-			pane.getItems().set(1, anchorPane);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
+	
 
 }

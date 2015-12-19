@@ -45,20 +45,30 @@ public class RegisterLectureLayoutController implements IRegisterLayout{
 			lecture.setLectureCollege(lectureCollegeTextField.getText());
 			
 			//DB에 데이터 넘겨주면 되는 곳
-			DaoEnrollmentLecture.lecEnrollDao(lecture);
+			if(DaoEnrollmentLecture.lecEnrollDao(lecture))
+				AlertDialog.showAlert("과목등록", "등록이 완료되었습니다.");
+			else
+				AlertDialog.showAlert("과목등록", "등록에 실패하였습니다.");
 			
+			setAllTextFieldClear();
 		}
 	}
 	
+	/**
+	 * LectureView's all TextField is clear
+	 */
 	private void setAllTextFieldClear()
 	{
 		lectureNameTextField.clear();
 		lectureNumberTextField.clear();
 		lectureMajorTextField.clear();
 		lectureCollegeTextField.clear();
-		AlertDialog.showAlert("과목등록", "등록이 완료되었습니다.");	
+			
 	}
 	
+	/**
+	 * Set RegisterLectureLayout in SplitPane of RegisterLayout
+	 */
 	@Override
 	public void setView(SplitPane pane) {
 		// TODO Auto-generated method stub
@@ -74,6 +84,10 @@ public class RegisterLectureLayoutController implements IRegisterLayout{
 		}
 	}
 	
+	/**
+	 * Validates the user input in the text fields.
+	 * @return
+	 */
 	private boolean isInputValid() {
         String errorMessage = "";
 

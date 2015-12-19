@@ -8,35 +8,34 @@ import cbnu.inform.db.model.ProfessorData;
 
 public class DaoEnrollmentProfessor {
 
-	public static void proEnrollDao(ProfessorData proData){
+	public static boolean proEnrollDao(ProfessorData proData) {
 		Connection dbConnection = null;
 		dbConnection = DaoDBConnection.tryConnect();
-		
-		Statement stmt =null;
-		
-		try{
+
+		Statement stmt = null;
+
+		try {
 			stmt = dbConnection.createStatement();
 			int rowCnt = stmt.executeUpdate("insert into classinfo.professor(name,idNumber,major,division) values('"
-											+toLatin1(proData.getProfessorName())+"' ,"+proData.getProfessorNumber()
-											+",'"+toLatin1(proData.getProfessorMajor())+"' ,'"+toLatin1(proData.getProfessorDivision())+"')");
-			
-			
-			if(rowCnt == 1)
-			{
-				System.out.println("입력 성공");
-			}
-			else{
-				System.out.println("입력 실패");
-			}
-			
-		} catch(Exception e){
-			System.out.println("query fail");
-				
-		}
-		
-	}
-	 private static String toLatin1(String str) throws UnsupportedEncodingException{
+					+ toLatin1(proData.getProfessorName()) + "' ," + proData.getProfessorNumber() + ",'"
+					+ toLatin1(proData.getProfessorMajor()) + "' ,'" + toLatin1(proData.getProfessorDivision()) + "')");
 
-		    return new String(str.getBytes(), "iso-8859-1");
-	 }
+			if (rowCnt == 1) {
+				System.out.println("입력 성공");
+				return true;
+			} else {
+				System.out.println("입력 실패");
+				return false;
+			}
+
+		} catch (Exception e) {
+			System.out.println("query fail");
+			return false;
+		}
+	}
+
+	private static String toLatin1(String str) throws UnsupportedEncodingException {
+
+		return new String(str.getBytes(), "iso-8859-1");
+	}
 }

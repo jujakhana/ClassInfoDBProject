@@ -46,20 +46,29 @@ public class RegisterClassLayoutController implements IRegisterLayout {
 			
 			//DB 데이터 입력하는 곳
 		
-			DaoEnrollmentClass.classEnrollDao(classData);
+			if(DaoEnrollmentClass.classEnrollDao(classData))
+				AlertDialog.showAlert("수강신청", "신청이 완료되었습니다.");	
+			else
+				AlertDialog.showAlert("수강신청", "신청이 실패하였습니다.");	
 			setAllTextFieldClear();
 		}
 	}
 	
+	/**
+	 * ClassView's all TextField is clear
+	 */
 	private void setAllTextFieldClear()
 	{
 		studentNameTextField.clear();
 		studentNumberTextField.clear();
 		lectureNumberTextField.clear();
 		lectureNameTextField.clear();
-		AlertDialog.showAlert("수강신청", "등록이 완료되었습니다.");	
+		
 	}
 
+	/**
+	 * Set RegisterClassLayout in SplitPane of RegisterLayout
+	 */
 	@Override
 	public void setView(SplitPane pane) {
 		// TODO Auto-generated method stub
@@ -75,6 +84,10 @@ public class RegisterClassLayoutController implements IRegisterLayout {
 		}
 	}
 
+	/**
+	 * Validates the user input in the text fields.
+	 * @return
+	 */
 	private boolean isInputValid() {
         String errorMessage = "";
 
