@@ -25,10 +25,10 @@ public class DaoEnrollmentApply {
 		
 			
 			if (rowCnt == 1) {
-				System.out.println("ÀÔ·Â ¼º°ø");
+				System.out.println("ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 				return true;
 			} else {
-				System.out.println("ÀÔ·Â ½ÇÆÐ");
+				System.out.println("ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 				return false;
 			}
 

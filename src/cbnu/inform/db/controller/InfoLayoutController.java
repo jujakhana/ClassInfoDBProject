@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.sun.media.jfxmedia.events.NewFrameEvent;
 
+import cbnu.inform.db.dao.DaoSelectClassAll;
 import cbnu.inform.db.model.InfoData;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.IntegerBinding;
@@ -188,7 +189,10 @@ public class InfoLayoutController {
 		for (int i = 0; i < 9; i++) {
 			listTableColumn.get(i).setVisible(checkStatus.get(i));
 		}
-	}
+		
+		infoData = DaoSelectClassAll.selectClassAllDao();
+		infoTableView.setItems(infoData);
+	}	
 
 	private void setCheckBoxAllSelected(boolean set) {
 		studentNameBox.setSelected(set);

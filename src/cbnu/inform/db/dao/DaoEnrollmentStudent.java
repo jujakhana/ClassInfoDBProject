@@ -20,15 +20,16 @@ public class DaoEnrollmentStudent {
 		try {
 			stmt = dbConnection.createStatement();
 			int rowCnt = stmt.executeUpdate("insert into classinfo.student(name,idNumber,major,grade,collage) values('"
-					+ toLatin1(studentData.getStudentName()) + "' ," + studentData.getStudentNumber() + ",'"
-					+ toLatin1(studentData.getStudentMajor()) + "' ," + studentData.getStudentGrade() + ",'"
-					+ toLatin1(studentData.getStudentCollage()) + "')");
+
+			+ toLatin1(studentData.getStudentName()) + "' ," + studentData.getStudentNumber() + ",'"
+			+ toLatin1(studentData.getStudentMajor()) + "' ," + studentData.getStudentGrade() + ",'"
+			+ toLatin1(studentData.getStudentCollage()) + "')");
 
 			if (rowCnt == 1) {
-				System.out.println("ÀÔ·Â ¼º°ø");
+				System.out.println("ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 				return true;
 			} else {
-				System.out.println("ÀÔ·Â ½ÇÆÐ");
+				System.out.println("ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 				return false;
 			}
 		} catch (Exception e) {
@@ -38,7 +39,7 @@ public class DaoEnrollmentStudent {
 	}
 
 	private static String toLatin1(String str) throws UnsupportedEncodingException {
+		return new String(str.getBytes(), "utf8");
 
-		return new String(str.getBytes(), "utf-8");
 	}
 }
