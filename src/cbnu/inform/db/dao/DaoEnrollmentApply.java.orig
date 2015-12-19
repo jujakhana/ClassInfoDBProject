@@ -15,13 +15,24 @@ public class DaoEnrollmentApply {
 		Statement stmt = null;
 		try {
 			stmt = dbConnection.createStatement();
+<<<<<<< HEAD
 			int rowCnt = stmt.executeUpdate(
-			int rowCnt = stmt.executeUpdate("insert into classinfo.apply(pName,pNum,pLecName,pLecNum,classTime,classCredit) values('"
+					"insert into classinfo.apply(pName,pNum,lecName,lecNum,classTime,classCredit) values('"
 							+ toLatin1(applyData.getProfessorName()) + "' ," + applyData.getProfessorNumber() + ",'"
 							+ toLatin1(applyData.getLectureName()) + "' ," + applyData.getLectureNumber() + " ,'"
 							+ toLatin1(applyData.getClassTime()) + "' ," + applyData.getClassCredit() + ")");
 
 			if (rowCnt == 1) {
+=======
+			int rowCnt = stmt.executeUpdate("insert into classinfo.apply(pName,pNum,pLecName,pLecNum,classTime,classCredit) values('"
+											+toLatin1(applyData.getProfessorName())+"' ,"+applyData.getProfessorNumber()
+											+",'"+toLatin1(applyData.getLectureName())+"' ,"+applyData.getLectureNumber()
+											+" ,'"+toLatin1(applyData.getClassTime())+"' ,"+applyData.getClassCredit()+")");
+			
+			
+			if(rowCnt == 1)
+			{
+>>>>>>> 648bc18eb7886cd6e662b7eda264e2743d8fa537
 				System.out.println("입력 성공");
 				return true;
 			} else {
