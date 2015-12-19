@@ -9,10 +9,10 @@
    <children>
       <TableView fx:id="professorTableView" prefHeight="210.0" prefWidth="210.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="교수이름" />
-          <TableColumn prefWidth="75.0" text="교수번호" />
-            <TableColumn prefWidth="75.0" text="소속학과" />
-            <TableColumn prefWidth="75.0" text="구분" />
+          <TableColumn fx:id="professorNameColumn" prefWidth="75.0" text="교수이름" />
+          <TableColumn fx:id="professorNumberColumn" prefWidth="75.0" text="교수번호" />
+            <TableColumn fx:id="professorMajorColumn" prefWidth="75.0" text="소속학과" />
+            <TableColumn fx:id="professorDivisionColumn" prefWidth="75.0" text="구분" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

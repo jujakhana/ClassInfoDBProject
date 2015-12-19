@@ -38,14 +38,7 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 	private Button registerButton;
 	
 	private MainApp mainApp;
-	
-	private String studentName;
-	private String studentNumber;
-	private String studentMajor;
-	private String studentGrade;
-	private String studentCollege;
-	
-	private StudentData studentData;
+
 	
 	/**
 	 * Constructor

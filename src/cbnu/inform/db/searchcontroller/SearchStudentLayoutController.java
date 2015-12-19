@@ -43,11 +43,13 @@ public class SearchStudentLayoutController {
      */
 	private void initialize(){
 		// Initialize the person table with the five columns.
+		/*
 		studentNameColumn.setCellValueFactory(cellData -> cellData.getValue().studentNameProperty());
 		studentNumberColumn.setCellValueFactory(cellData -> cellData.getValue().studentNumberProperty().asObject());
 		studentMajorColumn.setCellValueFactory(cellData -> cellData.getValue().studentMajorProperty());
 		studentGradeColumn.setCellValueFactory(cellData -> cellData.getValue().studentGradeProperty().asObject());
 		studentCollegeColumn.setCellValueFactory(cellData -> cellData.getValue().studentCollageProperty());
+		*/
 	}
 	
 	public ObservableList<StudentData> getPersonData(){
