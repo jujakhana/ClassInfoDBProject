@@ -124,9 +124,10 @@ public class SearchLayoutController {
 				studentDataList = DaoSearchStudent.searchStudentDao(secondSelectedInfo, inputText);
 				System.out.println(studentDataList.size());
 			} else if(firstSelectedInfo.equals("교과")){
-				lectureController.setLectureSearchLayout(pane);
+				setLectureSearchLayout();
 				DaoSearchProfessor.searchProfessorDao(secondSelectedInfo, inputText);
 			}else if(firstSelectedInfo.equals("교수")){
+				setProfessorSearchLayout();
 				professorContorller.setProfessorSearchLayout(pane);
 				DaoSearchProfessor.searchProfessorDao(secondSelectedInfo, inputText);
 			}	
