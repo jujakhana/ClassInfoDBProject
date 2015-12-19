@@ -18,8 +18,6 @@ public class InfoData {
 	private IntegerProperty lectureNumber;
 	private StringProperty professor;
 	private StringProperty lectureTime;
-	private IntegerProperty lecturePerson;
-	private IntegerProperty lectureLimit;
 	
 	public InfoData() {
 		// TODO Auto-generated constructor stub
@@ -32,8 +30,7 @@ public class InfoData {
 		lectureNumber = new SimpleIntegerProperty();
 		professor = new SimpleStringProperty();
 		lectureTime = new SimpleStringProperty();
-		lecturePerson = new SimpleIntegerProperty();
-		lectureLimit = new SimpleIntegerProperty();
+
 	}
 
 	public final StringProperty studentNameProperty() {
@@ -169,36 +166,5 @@ public class InfoData {
 	public final void setLectureTime(final java.lang.String lectureTime) {
 		this.lectureTimeProperty().set(lectureTime);
 	}
-	
-
-	public final IntegerProperty lecturePersonProperty() {
-		return this.lecturePerson;
-	}
-	
-
-	public final int getLecturePerson() {
-		return this.lecturePersonProperty().get();
-	}
-	
-
-	public final void setLecturePerson(final int lecturePerson) {
-		this.lecturePersonProperty().set(lecturePerson);
-	}
-	
-
-	public final IntegerProperty lectureLimitProperty() {
-		return this.lectureLimit;
-	}
-	
-
-	public final int getLectureLimit() {
-		return this.lectureLimitProperty().get();
-	}
-	
-
-	public final void setLectureLimit(final int lectureLimit) {
-		this.lectureLimitProperty().set(lectureLimit);
-	}
-	
 
 }

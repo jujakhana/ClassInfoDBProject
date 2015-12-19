@@ -67,10 +67,6 @@ public class InfoLayoutController {
 	TableColumn<InfoData, String> professorColumn;
 	@FXML
 	TableColumn<InfoData, String> lectureTimeColumn;
-	@FXML
-	TableColumn<InfoData, Integer> lecturePersonColumn;
-	@FXML
-	TableColumn<InfoData, Integer> lectureLimitColumn;
 
 	ObservableList<InfoData> infoData = FXCollections.observableArrayList();
 
@@ -79,7 +75,7 @@ public class InfoLayoutController {
 
 	public InfoLayoutController() {
 		// TODO Auto-generated constructor stub
-		for (int i = 0; i < 11; i++) {
+		for (int i = 0; i < 9; i++) {
 			checkStatus.add(i, false);
 		}
 	}
@@ -101,10 +97,8 @@ public class InfoLayoutController {
 		listTableColumn.add(6, lectureNumberColumn);
 		listTableColumn.add(7, professorColumn);
 		listTableColumn.add(8, lectureTimeColumn);
-		listTableColumn.add(9, lecturePersonColumn);
-		listTableColumn.add(10, lectureLimitColumn);
 
-		
+		/*
 		//data column initialize
 		studentNameColumn.setCellValueFactory(cell -> cell.getValue().studentNameProperty());
 		studentNumberColumn.setCellValueFactory(cell -> cell.getValue().studentNumberProperty().asObject());
@@ -115,9 +109,8 @@ public class InfoLayoutController {
 		lectureNumberColumn.setCellValueFactory(cell -> cell.getValue().lectureNumberProperty().asObject());
 		professorColumn.setCellValueFactory(cell -> cell.getValue().professorProperty());
 		lectureTimeColumn.setCellValueFactory(cell -> cell.getValue().lectureTimeProperty());
-		lecturePersonColumn.setCellValueFactory(cell -> cell.getValue().lecturePersonProperty().asObject());
-		lectureLimitColumn.setCellValueFactory(cell -> cell.getValue().lectureLimitProperty().asObject());
 
+		 */
 	}
 	
 	public ObservableList<InfoData> getPersonData() {
@@ -199,7 +192,7 @@ public class InfoLayoutController {
 
 	@FXML
 	private void handleClickInfoButton() {
-		for (int i = 0; i < 11; i++) {
+		for (int i = 0; i < 9; i++) {
 			listTableColumn.get(i).setVisible(checkStatus.get(i));
 		}
 	}
@@ -214,10 +207,7 @@ public class InfoLayoutController {
 		lectureNumberBox.setSelected(set);
 		professorBox.setSelected(set);
 		lectureTimeBox.setSelected(set);
-		lecturePerson.setSelected(set);
-		lectureLimit.setSelected(set);
-
-		for (int i = 0; i < 11; i++) {
+		for (int i = 0; i < 9; i++) {
 			checkStatus.set(i, set);
 		}
 	}
@@ -232,10 +222,8 @@ public class InfoLayoutController {
 		lectureNumberColumn.setVisible(set);
 		professorColumn.setVisible(set);
 		lectureTimeColumn.setVisible(set);
-		lecturePersonColumn.setVisible(set);
-		lectureLimitColumn.setVisible(set);
 
-		for (int i = 0; i < 11; i++) {
+		for (int i = 0; i < 9; i++) {
 			checkStatus.set(i, set);
 		}
 	}

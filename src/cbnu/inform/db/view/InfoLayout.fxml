@@ -22,7 +22,6 @@
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
@@ -40,9 +39,7 @@
                         <CheckBox fx:id="lectureNumberBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLectureNumberCheckBox" styleClass="label-bright" text="교과번호" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                         <CheckBox fx:id="professorBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleProfessorCheckBox" styleClass="label-bright" text="담당교수" GridPane.columnIndex="4" />
                         <CheckBox fx:id="lectureTimeBox" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLectureTimeCheckBox" styleClass="label-bright" text="수업시간" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <CheckBox fx:id="lecturePerson" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLecturePersonCheckBox" styleClass="label-bright" text="수강인원" GridPane.columnIndex="5" />
-                        <CheckBox fx:id="lectureLimit" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLectureLimitCheckBox" styleClass="label-bright" text="수강정원" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                        <Button fx:id="infoButton" mnemonicParsing="false" onAction="#handleClickInfoButton" text="정보확인" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                        <Button fx:id="infoButton" mnemonicParsing="false" onAction="#handleClickInfoButton" text="정보확인" GridPane.columnIndex="5" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>
@@ -63,8 +60,6 @@
                         <TableColumn fx:id="lectureNumberColumn" prefWidth="75.0" text="교과번호" />
                         <TableColumn fx:id="professorColumn" prefWidth="75.0" text="담당교수" />
                         <TableColumn fx:id="lectureTimeColumn" prefWidth="75.0" text="수업시간" />
-                        <TableColumn fx:id="lecturePersonColumn" prefWidth="75.0" text="수강인원" />
-                        <TableColumn fx:id="lectureLimitColumn" prefWidth="75.0" text="수강정원" />
                      </columns>
                   </TableView>
                </children></AnchorPane>

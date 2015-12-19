@@ -20,7 +20,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label styleClass="label-bright" text="교수이름" />
@@ -33,11 +32,9 @@
             <TextField fx:id="lectureNumberTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label styleClass="label-bright" text="수업시간" GridPane.rowIndex="4" />
             <Label styleClass="label-bright" text="학점" GridPane.rowIndex="5" />
-            <Label styleClass="label-bright" text="정원" GridPane.rowIndex="6" />
             <TextField fx:id="classTimeTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="classCreditTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="classLimitTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterButton" text="등록" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterButton" text="등록" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <Label layoutX="14.0" layoutY="14.0" styleClass="label-bright" text="강좌 등록" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">

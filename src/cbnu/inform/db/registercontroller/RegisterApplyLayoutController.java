@@ -29,8 +29,6 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 	@FXML
 	TextField classCreditTextField;
 	@FXML
-	TextField classLimitTextField;
-	@FXML
 	Button registerButton;
 
 	
@@ -49,8 +47,6 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 			apply.setLectureName(lectureNameTextField.getText());
 			apply.setClassTime(classTimeTextField.getText());
 			apply.setClassCredit(Integer.parseInt(classCreditTextField.getText()));
-			apply.setClassLimit(Integer.parseInt(classLimitTextField.getText()));
-			
 			//DataBase...
 			
 			setAllTextFieldClear();
@@ -66,8 +62,7 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 		lectureNameTextField.clear();
 		classTimeTextField.clear();
 		classCreditTextField.clear();
-		classLimitTextField.clear();
-		
+
 		AlertDialog.showAlert("강좌등록", "등록이 완료되었습니다.");	
 	}
 	
@@ -129,18 +124,7 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
                 errorMessage += "학점이 유효하지 않습니다(숫자 입력)!\n"; 
             }
         }
-        if (classLimitTextField.getText() == null || classLimitTextField.getText().length() == 0) {
-            errorMessage += "정원이 유효하지 않습니다.\n"; 
-        }else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(classLimitTextField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "정원이 유효하지 않습니다(숫자 입력)!\n"; 
-            }
-        }
     
-
         if (errorMessage.length() == 0) {
             return true;
         } else {
