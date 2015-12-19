@@ -3,8 +3,12 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+<<<<<<< HEAD
 import cbnu.inform.db.dao.DaoEnrollmentProfessor;
+import cbnu.inform.db.dao.DaoEnrollmentStudent;
+=======
 import cbnu.inform.db.model.ProfessorData;
+>>>>>>> ba685f43ce577218ac23f88f103d44d1c3695258
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -39,16 +43,21 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 	private void handleRegisterButton(){
 		ProfessorData professor = new ProfessorData();
 		if(isInputValid()){
-	
-	
+<<<<<<< HEAD
+			professorNumber = professorNumberTextField.getText();
+			professorName = professorNameTextField.getText();
+			professorMajor = professorMajorTextField.getText();
+			professorDivision = professorDivisionTextField.getText();
+			
+			DaoEnrollmentProfessor.proEnrollDao(proData);
+=======
 			professor.setProfessorName(professorNumberTextField.getText());
 			professor.setProfessorNumber(Integer.parseInt(professorNameTextField.getText()));
 			professor.setProfessorMajor(professorMajorTextField.getText());
 			professor.setProfessorDivision(professorDivisionTextField.getText());
 			
 			//DAO 이용해서 professor를 넘겨주면 됩니다.
-			DaoEnrollmentProfessor.proEnrollDao(professor);
-
+>>>>>>> ba685f43ce577218ac23f88f103d44d1c3695258
 		}
 	}
 	

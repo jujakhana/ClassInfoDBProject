@@ -99,10 +99,13 @@ public class SearchLayoutController {
 		if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo)
 				&& InvalidDataCheck.isStringValid("검색", secondSelectedInfo)
 				&& InvalidDataCheck.isStringValid("내용 입력", inputText)){
+			
 			if(firstSelectedInfo.equals("학생")){
-				FXMLLoader loader= setStudentSearchLayout();
+				
+				FXMLLoader loader = setStudentSearchLayout();
 				SearchStudentLayoutController controller = loader.getController();
 				controller.setSearchStudentLayout();
+				
 			} else if(firstSelectedInfo.equals("교과")){
 				setLectureSearchLayout();
 			}else if(firstSelectedInfo.equals("교수")){
@@ -116,8 +119,8 @@ public class SearchLayoutController {
 		firstSelectedInfo = firstComboBox.getSelectionModel().getSelectedItem();
 		secondSelectedInfo = secondComboBox.getSelectionModel().getSelectedItem();
 		
-		//if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo)
-	//			&& InvalidDataCheck.isStringValid("검색", secondSelectedInfo))
+		if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo)
+				&& InvalidDataCheck.isStringValid("검색", secondSelectedInfo))
 		{
 			if(firstSelectedInfo.equals("학생")){
 				setStudentSearchLayout();
