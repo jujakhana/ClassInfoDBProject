@@ -3,11 +3,8 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
-<<<<<<< HEAD
 import cbnu.inform.db.dao.DaoEnrollmentApply;
-=======
 import cbnu.inform.db.log.AlertDialog;
->>>>>>> cbade79f334350f9e61c3c6eafe0f0605376cbd6
 import cbnu.inform.db.model.ApplyData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -15,7 +15,7 @@ public class DaoEnrollmentClass {
 		Statement stmt =null;
 		try{
 			stmt = dbConnection.createStatement();
-			int rowCnt = stmt.executeUpdate("insert into classinfo.class(sName,sNumber,lecName,lecNumber) values('"
+			int rowCnt = stmt.executeUpdate("insert into classinfo.classallinfo(sName,sNumber,lecName,lecNumber) values('"
 											+toLatin1(classData.getStudentName())+"' ,"+classData.getStudentNumber()
 											+",'"+toLatin1(classData.getLectureName())+"' ,"+classData.getLectureNumber()+")");
 			

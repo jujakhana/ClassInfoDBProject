@@ -18,7 +18,7 @@ public class DaoEnrollmentApply {
 			int rowCnt = stmt.executeUpdate("insert into classinfo.apply(pName,pNum,lecName,lecNum,classTime,classCredit) values('"
 											+toLatin1(applyData.getProfessorName())+"' ,"+applyData.getProfessorNumber()
 											+",'"+toLatin1(applyData.getLectureName())+"' ,"+applyData.getLectureNumber()
-											+" ,"+applyData.getClassTime()+"' ,"+applyData.getClassCredit()+")");
+											+" ,'"+toLatin1(applyData.getClassTime())+"' ,"+applyData.getClassCredit()+")");
 			
 			
 			if(rowCnt == 1)
