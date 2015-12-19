@@ -41,6 +41,8 @@ public class SearchStudentLayoutController {
 	 */
 	public SearchStudentLayoutController() {
 		// TODO Auto-generated constructor stub
+		
+		
 	}
 	
 	@FXML
