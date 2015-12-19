@@ -119,8 +119,7 @@ public class SearchLayoutController {
 		firstSelectedInfo = firstComboBox.getSelectionModel().getSelectedItem();
 		secondSelectedInfo = secondComboBox.getSelectionModel().getSelectedItem();
 		
-		if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo)
-				&& InvalidDataCheck.isStringValid("검색", secondSelectedInfo))
+		if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo))
 		{
 			if(firstSelectedInfo.equals("학생")){
 				setStudentSearchLayout();

@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.Statement;
 
+import cbnu.inform.db.log.AlertDialog;
 import cbnu.inform.db.model.StudentData;
 
 public class DaoEnrollmentStudent {
@@ -25,6 +26,7 @@ public class DaoEnrollmentStudent {
 			if(rowCnt == 1)
 			{
 				System.out.println("입력 성공");
+				
 			}
 			else{
 				System.out.println("입력 실패");
