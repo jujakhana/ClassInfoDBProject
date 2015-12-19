@@ -16,10 +16,9 @@ public class DaoEnrollmentProfessor {
 		
 		try{
 			stmt = dbConnection.createStatement();
-			System.out.println();
 			int rowCnt = stmt.executeUpdate("insert into classinfo.professor(name,idNumber,major,division) values('"
 											+toLatin1(proData.getProfessorName())+"' ,"+proData.getProfessorNumber()
-											+",'"+toLatin1(proData.getProfessorMajor())+"' ,"+toLatin1(proData.getProfessorDivision())+"')");
+											+",'"+toLatin1(proData.getProfessorMajor())+"' ,'"+toLatin1(proData.getProfessorDivision())+"')");
 			
 			
 			if(rowCnt == 1)

@@ -3,6 +3,7 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.dao.DaoEnrollmentLecture;
 import cbnu.inform.db.model.LectureData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,13 +38,13 @@ public class RegisterLectureLayoutController implements IRegisterLayout{
 	private void handleRegisterButton(){
 		LectureData lecture = new LectureData();
 		if(isInputValid()){
-			lecture.setLectureName(lectureNumberTextField.getText());
-			lecture.setLectureNumber(Integer.parseInt(lectureNameTextField.getText()));
+			lecture.setLectureName(lectureNameTextField.getText());
+			lecture.setLectureNumber(Integer.parseInt(lectureNumberTextField.getText()));
 			lecture.setLectureMajor(lectureMajorTextField.getText());
 			lecture.setLectureCollege(lectureCollegeTextField.getText());
 			
 			//DB에 데이터 넘겨주면 되는 곳
-			
+			DaoEnrollmentLecture.lecEnrollDao(lecture);
 			
 		}
 	}
