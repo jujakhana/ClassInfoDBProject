@@ -73,8 +73,7 @@ public class SearchStudentLayoutController {
 		}
 	}
 	
-	public void setProfessorTableView(ObservableList<StudentData> studentData){
-		studentDataList = studentData;
-		studentTable.setItems(studentDataList);
+	public void setStudentTableView(ObservableList<StudentData> studentData){
+		studentTable.setItems(studentData);
 	}
 }

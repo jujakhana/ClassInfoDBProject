@@ -1,20 +1,17 @@
 package cbnu.inform.db.searchcontroller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import cbnu.inform.db.MainApp;
-import cbnu.inform.db.dao.DaoEnrollmentStudent;
 import cbnu.inform.db.dao.DaoSearchProfessor;
 import cbnu.inform.db.dao.DaoSearchStudent;
 import cbnu.inform.db.log.InvalidDataCheck;
+import cbnu.inform.db.model.StudentData;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 
 public class SearchLayoutController {
 
@@ -41,6 +38,8 @@ public class SearchLayoutController {
 	private String firstSelectedInfo;
 	private String secondSelectedInfo;
 	private String inputText;
+	
+	private ObservableList<StudentData> studentDataList;
 	
 	public SearchLayoutController() {
 		// TODO Auto-generated constructor stub
@@ -113,14 +112,17 @@ public class SearchLayoutController {
 				&& InvalidDataCheck.isStringValid("내용 입력", inputText)){
 			
 			if(firstSelectedInfo.equals("학생")){
+				
 				studentController.setStudentSearchLayout(pane);
-				DaoSearchStudent.searchStudentDao("학생", secondSelectedInfo);
+				studentDataList = DaoSearchStudent.searchStudentDao(secondSelectedInfo, inputText);
+				studentController.setStudentTableView(studentDataList);
+			
 			} else if(firstSelectedInfo.equals("교과")){
 				lectureController.setLectureSearchLayout(pane);
-				DaoSearchProfessor.searchProfessorDao("교과", secondSelectedInfo);
+				DaoSearchProfessor.searchProfessorDao(secondSelectedInfo, inputText);
 			}else if(firstSelectedInfo.equals("교수")){
 				professorContorller.setProfessorSearchLayout(pane);
-				DaoSearchProfessor.searchProfessorDao("교수", secondSelectedInfo);
+				DaoSearchProfessor.searchProfessorDao(secondSelectedInfo, inputText);
 			}	
 		}
 	}
