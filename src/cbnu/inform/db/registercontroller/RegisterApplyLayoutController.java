@@ -3,6 +3,7 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.dao.DaoEnrollmentApply;
 import cbnu.inform.db.model.ApplyData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,7 +52,7 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 			apply.setClassLimit(Integer.parseInt(classLimitTextField.getText()));
 			
 			//DataBase...
-		
+			DaoEnrollmentApply.applyEnrollDao(apply);
 		}
 	}
 	
