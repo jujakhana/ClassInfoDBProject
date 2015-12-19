@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.dao.DaoEnrollmentStudent;
+import cbnu.inform.db.dao.DaoSearchProfessor;
+import cbnu.inform.db.dao.DaoSearchStudent;
 import cbnu.inform.db.log.InvalidDataCheck;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -111,10 +114,13 @@ public class SearchLayoutController {
 			
 			if(firstSelectedInfo.equals("학생")){
 				studentController.setStudentSearchLayout(pane);
+				DaoSearchStudent.searchStudentDao("학생", secondSelectedInfo);
 			} else if(firstSelectedInfo.equals("교과")){
 				lectureController.setLectureSearchLayout(pane);
+				DaoSearchProfessor.searchProfessorDao("교과", secondSelectedInfo);
 			}else if(firstSelectedInfo.equals("교수")){
 				professorContorller.setProfessorSearchLayout(pane);
+				DaoSearchProfessor.searchProfessorDao("교수", secondSelectedInfo);
 			}	
 		}
 	}
@@ -136,10 +142,5 @@ public class SearchLayoutController {
 		}
 	}
 
-	
-
-	
-
-	
 
 }
