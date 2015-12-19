@@ -3,6 +3,8 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.dao.DaoEnrollmentProfessor;
+import cbnu.inform.db.dao.DaoEnrollmentStudent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -45,6 +47,8 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 			professorName = professorNameTextField.getText();
 			professorMajor = professorMajorTextField.getText();
 			professorDivision = professorDivisionTextField.getText();
+			
+			DaoEnrollmentProfessor.proEnrollDao(proData);
 		}
 	}
 	
