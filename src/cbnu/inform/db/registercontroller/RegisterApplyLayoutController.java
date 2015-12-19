@@ -3,6 +3,7 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.dao.DaoEnrollmentApply;
 import cbnu.inform.db.log.AlertDialog;
 import cbnu.inform.db.model.ApplyData;
 import javafx.fxml.FXML;
@@ -48,9 +49,10 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 			apply.setClassTime(classTimeTextField.getText());
 			apply.setClassCredit(Integer.parseInt(classCreditTextField.getText()));
 			//DataBase...
+
+			DaoEnrollmentApply.applyEnrollDao(apply);
 			
 			setAllTextFieldClear();
-		
 		}
 	}
 	
