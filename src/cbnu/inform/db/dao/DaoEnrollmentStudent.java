@@ -16,11 +16,9 @@ public class DaoEnrollmentStudent {
 
 		Statement stmt = null;
 
-		ResultSet result = null;
 		try {
 			stmt = dbConnection.createStatement();
 			int rowCnt = stmt.executeUpdate("insert into classinfo.student(name,idNumber,major,grade,collage) values('"
-
 			+ toLatin1(studentData.getStudentName()) + "' ," + studentData.getStudentNumber() + ",'"
 			+ toLatin1(studentData.getStudentMajor()) + "' ," + studentData.getStudentGrade() + ",'"
 			+ toLatin1(studentData.getStudentCollage()) + "')");

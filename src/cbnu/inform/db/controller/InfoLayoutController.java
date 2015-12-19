@@ -191,6 +191,7 @@ public class InfoLayoutController {
 		}
 		
 		infoData = DaoSelectClassAll.selectClassAllDao();
+		System.out.println(infoData.toString());
 		infoTableView.setItems(infoData);
 	}	
 

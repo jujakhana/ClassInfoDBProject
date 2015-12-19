@@ -23,7 +23,6 @@ public class DaoEnrollmentApply {
 							+ toLatin1(applyData.getLectureName()) + "' ," + applyData.getLectureNumber() + " ,'"
 							+ toLatin1(applyData.getClassTime()) + "' ," + applyData.getClassCredit() + ")");
 		
-			
 			if (rowCnt == 1) {
 				System.out.println("�Է� ����");
 				return true;
@@ -31,19 +30,15 @@ public class DaoEnrollmentApply {
 				System.out.println("�Է� ����");
 				return false;
 			}
-
 			
 		} catch (Exception e) {
 			System.out.println("query fail");
 			return false;
 		}
-		
-	
-
 	}
 
 	private static String toLatin1(String str) throws UnsupportedEncodingException {
 
-		return new String(str.getBytes(), "iso-8859-1");
+		return new String(str.getBytes(), "utf8");
 	}
 }

@@ -14,7 +14,7 @@ public class DaoSelectClassAll {
 	public static ObservableList<InfoData> selectClassAllDao(){
 
 		ObservableList<InfoData> infoDataList = FXCollections.observableArrayList();
-		InfoData infoData = new InfoData();
+		
 		
 		Connection dbConnection  = DaoDBConnection.tryConnect();
 		
@@ -29,6 +29,7 @@ public class DaoSelectClassAll {
 					+ "where s.idNumber = c.sNumber and a.pLecNum = c.lecNumber;");
 			
 			while(result.next()){
+				InfoData infoData = new InfoData();
 				infoData.setStudentName(result.getString("name"));
 				infoData.setStudentNumber(result.getInt("idNumber"));
 				infoData.setMajor(result.getString("major"));
@@ -39,7 +40,7 @@ public class DaoSelectClassAll {
 				infoData.setProfessor(result.getString("pName"));
 				infoData.setLectureTime(result.getString("classTime"));
 				
-				System.out.println(result.getString("name"));
+				System.out.println(infoData.getStudentName());
 			
 				infoDataList.add(infoData);
 			}
@@ -49,6 +50,8 @@ public class DaoSelectClassAll {
 			return null;
 		}
 
+		System.out.println(infoDataList.toString().toString());
+		
 		return infoDataList;
 	}
 }
