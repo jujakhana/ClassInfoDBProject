@@ -33,6 +33,8 @@ public class SearchProfessorLayoutController {
 
 	private ObservableList<ProfessorData> professorData = FXCollections.observableArrayList();
 
+	private SearchLayoutController controller;
+	
 	public SearchProfessorLayoutController() {
 		// TODO Auto-generated constructor stub
 
@@ -62,10 +64,12 @@ public class SearchProfessorLayoutController {
 			e.printStackTrace();
 		}
 	}
-
-	public void setSProfessorTableView(ObservableList<ProfessorData> professorData) {
-		this.professorData = professorData;
-		professorTableView.setItems(this.professorData);
+	
+	public void setSearchLayoutController(SearchLayoutController ctl)
+	{
+		this.controller = ctl;
+		
+		professorTableView.setItems(controller.getProfessorData());
 	}
 
 }

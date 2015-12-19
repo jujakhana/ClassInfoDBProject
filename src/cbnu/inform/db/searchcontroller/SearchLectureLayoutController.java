@@ -32,6 +32,7 @@ public class SearchLectureLayoutController {
 	
 	private ObservableList<LectureData> lectureDataList = FXCollections.observableArrayList();
 	
+	private SearchLayoutController controller;
 	/**
 	 * The constructor
 	 */
@@ -63,9 +64,11 @@ public class SearchLectureLayoutController {
 		}
 	}
 	
-	public void setLectureTableView(ObservableList<LectureData> lecture){
-		lectureDataList = lecture;
-		lectureTableView.setItems(lectureDataList);
+	public void setSearchLayoutController(SearchLayoutController ctl)
+	{
+		this.controller = ctl;
+		
+		lectureTableView.setItems(controller.getLectureData());
 	}
 	
 }

@@ -36,6 +36,8 @@ public class SearchStudentLayoutController {
 	
 	private ObservableList<StudentData> studentDataList = FXCollections.observableArrayList();
 	
+	private SearchLayoutController controller;
+	
 	/**
 	 * The constructor
 	 */
@@ -59,21 +61,11 @@ public class SearchStudentLayoutController {
 		studentGradeColumn.setCellValueFactory(cellData -> cellData.getValue().studentGradeProperty().asObject());
 		studentCollegeColumn.setCellValueFactory(cellData -> cellData.getValue().studentCollageProperty());
 	}
-
-	public void setStudentSearchLayout(SplitPane pane) {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/SearchStudentLayout.fxml"));
-			AnchorPane anchorPane;
-			anchorPane = (AnchorPane) loader.load();
-			pane.getItems().set(1, anchorPane);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
-	public void setStudentTableView(ObservableList<StudentData> studentData){
-		studentTable.setItems(studentData);
+	public void setSearchLayoutController(SearchLayoutController ctl)
+	{
+		this.controller = ctl;
+		
+		studentTable.setItems(controller.getStudentData());
 	}
 }

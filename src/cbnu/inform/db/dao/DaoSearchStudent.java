@@ -1,5 +1,6 @@
 package cbnu.inform.db.dao;
 
+
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,11 +14,9 @@ import javafx.collections.ObservableList;
 public class DaoSearchStudent {
 
 	public static ObservableList<StudentData> searchStudentDao(String s, String value) {
-
-		ObservableList<StudentData> stDataList = FXCollections.observableArrayList();
-		java.lang.String str = value;
 		Connection dbConnection = DaoDBConnection.tryConnect();
-
+		ObservableList<StudentData> stDataList = FXCollections.observableArrayList();
+		
 		Statement stmt = null;
 		ResultSet result = null;
 
@@ -25,57 +24,33 @@ public class DaoSearchStudent {
 
 		try {
 			stmt = dbConnection.createStatement();
+			result = stmt.executeQuery("select * from classinfo.student where idNumber = " + Integer.parseInt(value));
+	
+			while(result.next())
+			{
+				StudentData studentData = new StudentData();
+				
+				studentData.setStudentName(result.getString("name"));
+				studentData.setStudentNumber(result.getInt("idNumber"));
+				studentData.setStudentMajor(result.getString("major"));
+				studentData.setStudentGrade(result.getInt("grade"));
+				studentData.setStudentCollage(result.getString("collage"));
 
-			//if (s.equals("이름")) {
-				select = "name";
-				//str = toLatin1(str);
-				result = stmt.executeQuery("select * from classinfo.student where " + select + " = '" + toLatin1(str)+ "';");
-/*
-			} else if (s.equals("학번")) {
-				select = "idNumber";
-				result = stmt.executeQuery(
-						"select * from classinfo.student where " + select + " = " + Integer.parseInt(value) + ";");
-			} else if (s.equals("교과")) {
-				select = "major";
-				result = stmt.executeQuery("select * from classinfo.student where " + select + " = '" + value + "';");
-			} else if (s.equals("학년")) {
-				select = "grade";
-				result = stmt.executeQuery(
-						"select * from classinfo.student where " + select + " = " + Integer.parseInt(value) + ";");
-			} else if (s.equals("대학")) {
-				select = "collage";
-				result = stmt.executeQuery("select * from classinfo.student where " + select + " = '" + value + "';");
-
+				stDataList.add(studentData);
 			}
-*/
-			System.out.println(result.getString("name"));
-
-			while (result.next()) {
-				StudentData stData = new StudentData();
-
-				stData.setStudentName(result.getString("name"));
-				stData.setStudentNumber(result.getInt("idNumber"));
-				stData.setStudentMajor(result.getString("major"));
-				stData.setStudentGrade(result.getInt("grade"));
-				stData.setStudentCollage(result.getString("collage"));
-
-				stDataList.add(stData);
-			}
-
-		} catch (SQLException e) {
+		} catch (SQLException e)
+		{
 			System.out.println("q f" + e.getMessage() + " / " + e.getSQLState() + " / " + e.getErrorCode());
 			return null;
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 
-		System.out.println(stDataList.toString());
+		System.out.println(stDataList.size());
 		return stDataList;
+
 	}
 
 	private static String toLatin1(String str) throws UnsupportedEncodingException {
 
-		return new String(str.getBytes(), "utf8");
+		return new String(str.getBytes(""), "8859_1");
 	}
 }
