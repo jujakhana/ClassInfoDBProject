@@ -3,6 +3,7 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.model.LectureData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -29,21 +30,21 @@ public class RegisterLectureLayoutController implements IRegisterLayout{
 	@FXML
 	Button registerButton;
 	
-	private String lectureNumber;
-	private String lectureName;
-	private String lectureMajor;
-	private String lectureCollege;
-	
 	/**
 	 * Called when the user clicks on the register button
 	 */
 	@FXML
 	private void handleRegisterButton(){
+		LectureData lecture = new LectureData();
 		if(isInputValid()){
-			lectureNumber = lectureNumberTextField.getText();
-			lectureName = lectureNameTextField.getText();
-			lectureMajor = lectureMajorTextField.getText();
-			lectureCollege = lectureCollegeTextField.getText();	
+			lecture.setLectureName(lectureNumberTextField.getText());
+			lecture.setLectureNumber(Integer.parseInt(lectureNameTextField.getText()));
+			lecture.setLectureMajor(lectureMajorTextField.getText());
+			lecture.setLectureCollege(lectureCollegeTextField.getText());
+			
+			//DB에 데이터 넘겨주면 되는 곳
+			
+			
 		}
 	}
 	

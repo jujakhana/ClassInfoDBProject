@@ -3,64 +3,55 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.model.ApplyData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 
 public class RegisterApplyLayoutController implements IRegisterLayout {
 
 	@FXML
 	TextField professorNameTextField;
-
 	@FXML
 	TextField professorNumberTextField;
-
 	@FXML
 	TextField lectureNameTextField;
-
 	@FXML
 	TextField lectureNumberTextField;
-
 	@FXML
 	TextField classTimeTextField;
-
 	@FXML
 	TextField classCreditTextField;
-
 	@FXML
 	TextField classLimitTextField;
-
 	@FXML
 	Button registerButton;
 
-	private String professorName;
-	private String professorNumber;
-	private String lectureName;
-	private String lectureNumber;
-	private String classTime;
-	private String classCredit;
-	private String classLimit;
-	
 	
 	/**
 	 * Called when the user clicks on the register button
 	 */
 	@FXML
 	private void handleRegisterButton(){
+		ApplyData apply = new ApplyData();
+		
 		if(isInputValid())
 		{
-			professorName = professorNameTextField.getText();
-			professorNumber = professorNumberTextField.getText();
-			lectureNumber = lectureNumberTextField.getText();
-			lectureName = lectureNameTextField.getText();
-			classTime = classTimeTextField.getText();
-			classCredit = classCreditTextField.getText();
-			classLimit = classLimitTextField.getText();
+			apply.setProfessorName(professorNameTextField.getText());
+			apply.setProfessorNumber(Integer.parseInt(professorNumberTextField.getText()));
+			apply.setLectureName(lectureNumberTextField.getText());
+			apply.setLectureName(lectureNameTextField.getText());
+			apply.setClassTime(classTimeTextField.getText());
+			apply.setClassCredit(Integer.parseInt(classCreditTextField.getText()));
+			apply.setClassLimit(Integer.parseInt(classLimitTextField.getText()));
+			
+			//DataBase...
+		
 		}
 	}
 	
