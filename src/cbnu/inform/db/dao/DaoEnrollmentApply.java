@@ -15,7 +15,6 @@ public class DaoEnrollmentApply {
 		Statement stmt = null;
 		try {
 			stmt = dbConnection.createStatement();
-			int rowCnt = stmt.executeUpdate(
 			int rowCnt = stmt.executeUpdate("insert into classinfo.apply(pName,pNum,pLecName,pLecNum,classTime,classCredit) values('"
 							+ toLatin1(applyData.getProfessorName()) + "' ," + applyData.getProfessorNumber() + ",'"
 							+ toLatin1(applyData.getLectureName()) + "' ," + applyData.getLectureNumber() + " ,'"
