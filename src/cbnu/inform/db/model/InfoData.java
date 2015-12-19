@@ -17,7 +17,7 @@ public class InfoData {
 	private StringProperty lecture;
 	private IntegerProperty lectureNumber;
 	private StringProperty professor;
-	private IntegerProperty lectureTime;
+	private StringProperty lectureTime;
 	private IntegerProperty lecturePerson;
 	private IntegerProperty lectureLimit;
 	
@@ -31,7 +31,7 @@ public class InfoData {
 		lecture= new SimpleStringProperty();
 		lectureNumber = new SimpleIntegerProperty();
 		professor = new SimpleStringProperty();
-		lectureTime = new SimpleIntegerProperty();
+		lectureTime = new SimpleStringProperty();
 		lecturePerson = new SimpleIntegerProperty();
 		lectureLimit = new SimpleIntegerProperty();
 	}
@@ -156,17 +156,17 @@ public class InfoData {
 	}
 	
 
-	public final IntegerProperty lectureTimeProperty() {
+	public final StringProperty lectureTimeProperty() {
 		return this.lectureTime;
 	}
 	
 
-	public final int getLectureTime() {
+	public final java.lang.String getLectureTime() {
 		return this.lectureTimeProperty().get();
 	}
 	
 
-	public final void setLectureTime(final int lectureTime) {
+	public final void setLectureTime(final java.lang.String lectureTime) {
 		this.lectureTimeProperty().set(lectureTime);
 	}
 	
@@ -200,6 +200,5 @@ public class InfoData {
 		this.lectureLimitProperty().set(lectureLimit);
 	}
 	
-	
-	
+
 }

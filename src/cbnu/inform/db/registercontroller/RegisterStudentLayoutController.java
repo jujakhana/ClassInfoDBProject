@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
 import cbnu.inform.db.dao.DaoEnrollmentStudent;
+import cbnu.inform.db.log.AlertDialog;
 import cbnu.inform.db.model.StudentData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -71,7 +72,20 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 			studentData.setStudentCollage(collegeTextField.getText());
 		
 			DaoEnrollmentStudent.stuendtEnrollDao(studentData);
+			
+			setAllTextFieldClear();
 		}
+	}
+	
+	private void setAllTextFieldClear()
+	{
+		nameTextField.clear();
+		numberTextField.clear();
+		majorTextField.clear();
+		gradeTextField.clear();
+		collegeTextField.clear();
+		
+		AlertDialog.showAlert("학생등록", "등록이 완료되었습니다.");	
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.log.AlertDialog;
 import cbnu.inform.db.model.ClassData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +44,18 @@ public class RegisterClassLayoutController implements IRegisterLayout {
 			classData.setLectureName(lectureNameTextField.getText());
 			
 			//DB 데이터 입력하는 곳
+			
+			setAllTextFieldClear();
 		}
+	}
+	
+	private void setAllTextFieldClear()
+	{
+		studentNameTextField.clear();
+		studentNumberTextField.clear();
+		lectureNumberTextField.clear();
+		lectureNameTextField.clear();
+		AlertDialog.showAlert("수강신청", "등록이 완료되었습니다.");	
 	}
 
 	@Override
@@ -67,12 +79,12 @@ public class RegisterClassLayoutController implements IRegisterLayout {
         if (studentNameTextField.getText() == null || studentNameTextField.getText().length() == 0) {
             errorMessage += "학생 이름이 유효하지 않습니다.\n"; 
         }
-        if (studentNameTextField.getText() == null || studentNameTextField.getText().length() == 0) {
+        if (studentNumberTextField.getText() == null || studentNumberTextField.getText().length() == 0) {
             errorMessage += "학생 학번이 유효하지 않습니다.\n"; 
         }else {
             // try to parse the postal code into an int.
             try {
-                Integer.parseInt(studentNameTextField.getText());
+                Integer.parseInt(studentNumberTextField.getText());
             } catch (NumberFormatException e) {
                 errorMessage += "학생 학번이 유효하지 않습니다(숫자 입력)!\n"; 
             }

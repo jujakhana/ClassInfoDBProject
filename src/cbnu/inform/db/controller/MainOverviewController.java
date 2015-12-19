@@ -115,8 +115,28 @@ public class MainOverviewController {
 		}
 	}
 	
-	public static void setMainOverView() {
 
+	@FXML
+	private void clickRegisterTab()	{
+		showRegisterLayout();	
+	}
+	
+	@FXML
+	private void clickDeleteTab(){
+		showDeletelayout();
+	}
+	
+	@FXML
+	private void clickSearchLayout(){
+		showSearchLayout();
 	}
 
+	@FXML
+	private void clickInfoLayout(){
+		showInfoLayout();
+	}
 }
+
+
+
+

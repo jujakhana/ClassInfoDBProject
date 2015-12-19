@@ -12,6 +12,7 @@ import javafx.beans.binding.IntegerBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
@@ -65,11 +66,13 @@ public class InfoLayoutController {
 	@FXML
 	TableColumn<InfoData, String> professorColumn;
 	@FXML
-	TableColumn<InfoData, Integer> lectureTimeColumn;
+	TableColumn<InfoData, String> lectureTimeColumn;
 	@FXML
 	TableColumn<InfoData, Integer> lecturePersonColumn;
 	@FXML
 	TableColumn<InfoData, Integer> lectureLimitColumn;
+
+	ObservableList<InfoData> infoData = FXCollections.observableArrayList();
 
 	List<Boolean> checkStatus = new ArrayList<Boolean>();
 	List<TableColumn> listTableColumn = new ArrayList<TableColumn>();
@@ -88,7 +91,7 @@ public class InfoLayoutController {
 	@FXML
 	private void initialize() {
 		setVisiableAllColumn(false);
-		
+
 		listTableColumn.add(0, studentNameColumn);
 		listTableColumn.add(1, studentNumberColumn);
 		listTableColumn.add(2, majorColumn);
@@ -100,6 +103,31 @@ public class InfoLayoutController {
 		listTableColumn.add(8, lectureTimeColumn);
 		listTableColumn.add(9, lecturePersonColumn);
 		listTableColumn.add(10, lectureLimitColumn);
+
+		
+		//data column initialize
+		studentNameColumn.setCellValueFactory(cell -> cell.getValue().studentNameProperty());
+		studentNumberColumn.setCellValueFactory(cell -> cell.getValue().studentNumberProperty().asObject());
+		majorColumn.setCellValueFactory(cell -> cell.getValue().majorProperty());
+		gradeColumn.setCellValueFactory(cell -> cell.getValue().gradeProperty().asObject());
+		collegeColumn.setCellValueFactory(cell -> cell.getValue().collegeProperty());
+		lectureColumn.setCellValueFactory(cell -> cell.getValue().lectureProperty());
+		lectureNumberColumn.setCellValueFactory(cell -> cell.getValue().lectureNumberProperty().asObject());
+		professorColumn.setCellValueFactory(cell -> cell.getValue().professorProperty());
+		lectureTimeColumn.setCellValueFactory(cell -> cell.getValue().lectureTimeProperty());
+		lecturePersonColumn.setCellValueFactory(cell -> cell.getValue().lecturePersonProperty().asObject());
+		lectureLimitColumn.setCellValueFactory(cell -> cell.getValue().lectureLimitProperty().asObject());
+
+	}
+	
+	public ObservableList<InfoData> getPersonData() {
+        return infoData;
+    }
+	
+	public void setInfoData(InfoData data){
+		infoData.add(data);
+		
+		infoTableView.setItems(infoData);
 	}
 
 	/**
@@ -188,9 +216,8 @@ public class InfoLayoutController {
 		lectureTimeBox.setSelected(set);
 		lecturePerson.setSelected(set);
 		lectureLimit.setSelected(set);
-		
-		for(int i = 0; i<11; i++)
-		{
+
+		for (int i = 0; i < 11; i++) {
 			checkStatus.set(i, set);
 		}
 	}
@@ -207,9 +234,8 @@ public class InfoLayoutController {
 		lectureTimeColumn.setVisible(set);
 		lecturePersonColumn.setVisible(set);
 		lectureLimitColumn.setVisible(set);
-		
-		for(int i = 0; i<11; i++)
-		{
+
+		for (int i = 0; i < 11; i++) {
 			checkStatus.set(i, set);
 		}
 	}

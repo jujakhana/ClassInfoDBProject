@@ -3,6 +3,7 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.log.AlertDialog;
 import cbnu.inform.db.model.LectureData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,8 +38,8 @@ public class RegisterLectureLayoutController implements IRegisterLayout{
 	private void handleRegisterButton(){
 		LectureData lecture = new LectureData();
 		if(isInputValid()){
-			lecture.setLectureName(lectureNumberTextField.getText());
-			lecture.setLectureNumber(Integer.parseInt(lectureNameTextField.getText()));
+			lecture.setLectureName(lectureNameTextField.getText());
+			lecture.setLectureNumber(Integer.parseInt(lectureNumberTextField.getText()));
 			lecture.setLectureMajor(lectureMajorTextField.getText());
 			lecture.setLectureCollege(lectureCollegeTextField.getText());
 			
@@ -46,6 +47,15 @@ public class RegisterLectureLayoutController implements IRegisterLayout{
 			
 			
 		}
+	}
+	
+	private void setAllTextFieldClear()
+	{
+		lectureNameTextField.clear();
+		lectureNumberTextField.clear();
+		lectureMajorTextField.clear();
+		lectureCollegeTextField.clear();
+		AlertDialog.showAlert("과목등록", "등록이 완료되었습니다.");	
 	}
 	
 	@Override

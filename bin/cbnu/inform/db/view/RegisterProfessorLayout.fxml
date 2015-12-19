@@ -25,8 +25,8 @@
             <Label styleClass="label-bright" text="교수번호" GridPane.rowIndex="1" />
             <Label styleClass="label-bright" text="소속학과" GridPane.rowIndex="2" />
             <Label styleClass="label-bright" text="구분" GridPane.rowIndex="3" />
-            <TextField fx:id="professorNumberTextField" styleClass="text-field" stylesheets="@DarkTheme.css" GridPane.columnIndex="1" />
-            <TextField fx:id="professorNameTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="professorNameTextField" styleClass="text-field" stylesheets="@DarkTheme.css" GridPane.columnIndex="1" />
+            <TextField fx:id="professorNumberTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="professorMajorTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="professorDivisionTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterButton" text="등록" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
