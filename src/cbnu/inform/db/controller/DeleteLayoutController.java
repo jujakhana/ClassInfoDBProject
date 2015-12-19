@@ -57,6 +57,7 @@ public class DeleteLayoutController {
 		if(InvalidDataCheck.isIntegerValid("교과삭제", lectureNumber))
 		{
 			//Valid Data;
+
 		}
 	}
 	

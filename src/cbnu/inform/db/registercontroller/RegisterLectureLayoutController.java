@@ -3,7 +3,11 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+<<<<<<< .merge_file_a09948
+import cbnu.inform.db.log.AlertDialog;
+=======
 import cbnu.inform.db.dao.DaoEnrollmentLecture;
+>>>>>>> .merge_file_a11228
 import cbnu.inform.db.model.LectureData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,6 +51,15 @@ public class RegisterLectureLayoutController implements IRegisterLayout{
 			DaoEnrollmentLecture.lecEnrollDao(lecture);
 			
 		}
+	}
+	
+	private void setAllTextFieldClear()
+	{
+		lectureNameTextField.clear();
+		lectureNumberTextField.clear();
+		lectureMajorTextField.clear();
+		lectureCollegeTextField.clear();
+		AlertDialog.showAlert("과목등록", "등록이 완료되었습니다.");	
 	}
 	
 	@Override

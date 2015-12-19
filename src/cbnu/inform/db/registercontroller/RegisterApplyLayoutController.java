@@ -3,7 +3,11 @@ package cbnu.inform.db.registercontroller;
 import java.io.IOException;
 
 import cbnu.inform.db.MainApp;
+<<<<<<< HEAD
 import cbnu.inform.db.dao.DaoEnrollmentApply;
+=======
+import cbnu.inform.db.log.AlertDialog;
+>>>>>>> cbade79f334350f9e61c3c6eafe0f0605376cbd6
 import cbnu.inform.db.model.ApplyData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,8 +33,6 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 	@FXML
 	TextField classCreditTextField;
 	@FXML
-	TextField classLimitTextField;
-	@FXML
 	Button registerButton;
 
 	
@@ -45,15 +47,28 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 		{
 			apply.setProfessorName(professorNameTextField.getText());
 			apply.setProfessorNumber(Integer.parseInt(professorNumberTextField.getText()));
-			apply.setLectureName(lectureNumberTextField.getText());
+			apply.setLectureNumber(Integer.parseInt(lectureNumberTextField.getText()));
 			apply.setLectureName(lectureNameTextField.getText());
 			apply.setClassTime(classTimeTextField.getText());
 			apply.setClassCredit(Integer.parseInt(classCreditTextField.getText()));
-			apply.setClassLimit(Integer.parseInt(classLimitTextField.getText()));
-			
 			//DataBase...
+
 			DaoEnrollmentApply.applyEnrollDao(apply);
+			
+			setAllTextFieldClear();
 		}
+	}
+	
+	private void setAllTextFieldClear()
+	{
+		professorNameTextField.clear();
+		professorNumberTextField.clear();
+		lectureNumberTextField.clear();
+		lectureNameTextField.clear();
+		classTimeTextField.clear();
+		classCreditTextField.clear();
+
+		AlertDialog.showAlert("강좌등록", "등록이 완료되었습니다.");	
 	}
 	
 	@Override
@@ -114,18 +129,7 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
                 errorMessage += "학점이 유효하지 않습니다(숫자 입력)!\n"; 
             }
         }
-        if (classLimitTextField.getText() == null || classLimitTextField.getText().length() == 0) {
-            errorMessage += "정원이 유효하지 않습니다.\n"; 
-        }else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(classLimitTextField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "정원이 유효하지 않습니다(숫자 입력)!\n"; 
-            }
-        }
     
-
         if (errorMessage.length() == 0) {
             return true;
         } else {

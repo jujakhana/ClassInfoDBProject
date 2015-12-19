@@ -17,7 +17,6 @@ public class ApplyData {
 	private IntegerProperty lectureNumber;
 	private StringProperty classTime;
 	private IntegerProperty classCredit;
-	private IntegerProperty classLimit;
 	
 	/*
 	 * Default constructor.
@@ -31,7 +30,6 @@ public class ApplyData {
 		lectureNumber = new SimpleIntegerProperty();
 		classTime = new SimpleStringProperty();
 		classCredit = new SimpleIntegerProperty();
-		classLimit = new SimpleIntegerProperty();
 	}
 
 	public final StringProperty professorNameProperty() {
@@ -122,21 +120,6 @@ public class ApplyData {
 	public final void setClassCredit(final int classCredit) {
 		this.classCreditProperty().set(classCredit);
 	}
-	
 
-	public final IntegerProperty classLimitProperty() {
-		return this.classLimit;
-	}
-	
-
-	public final int getClassLimit() {
-		return this.classLimitProperty().get();
-	}
-	
-
-	public final void setClassLimit(final int classLimit) {
-		this.classLimitProperty().set(classLimit);
-	}
-	
 	
 }
