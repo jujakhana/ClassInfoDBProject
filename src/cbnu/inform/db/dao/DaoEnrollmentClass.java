@@ -21,10 +21,10 @@ public class DaoEnrollmentClass {
 							+ toLatin1(classData.getLectureName()) + "' ," + classData.getLectureNumber() + ")");
 
 			if (rowCnt == 1) {
-				System.out.println("ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½");
+				System.out.println("ÀÔ·Â ¼º°ø");
 				return true;
 			} else {
-				System.out.println("ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½");
+				System.out.println("ÀÔ·Â ½ÇÆÐ");
 				return false;
 			}
 		
