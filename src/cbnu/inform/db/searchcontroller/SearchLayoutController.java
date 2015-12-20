@@ -5,8 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.dao.DaoSearchLecAll;
 import cbnu.inform.db.dao.DaoSearchLecture;
+import cbnu.inform.db.dao.DaoSearchProAll;
 import cbnu.inform.db.dao.DaoSearchProfessor;
+import cbnu.inform.db.dao.DaoSearchStAll;
 import cbnu.inform.db.dao.DaoSearchStudent;
 import cbnu.inform.db.log.InvalidDataCheck;
 import cbnu.inform.db.model.LectureData;
@@ -146,10 +149,14 @@ public class SearchLayoutController {
 
 		if (InvalidDataCheck.isStringValid("검색", firstSelectedInfo)) {
 			if (firstSelectedInfo.equals("학생")) {
+				studentDataList = DaoSearchStAll.searchStAll();
 				setStudentSearchLayout();
+				
 			} else if (firstSelectedInfo.equals("교과")) {
+				professorDataList = DaoSearchProAll.searchProAll();
 				setLectureSearchLayout();
 			} else if (firstSelectedInfo.equals("교수")) {
+				lectureDataList = DaoSearchLecAll.searchLecAll();
 				setProfessorSearchLayout();
 			}
 		}

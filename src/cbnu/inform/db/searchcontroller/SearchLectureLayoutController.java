@@ -43,7 +43,7 @@ public class SearchLectureLayoutController {
 		lectureNumberColumn.setCellValueFactory(cell -> cell.getValue().lectureNumberProperty().asObject());
 		lectureNameColumn.setCellValueFactory(cell -> cell.getValue().lectureNameProperty());
 		lectureMajorColumn.setCellValueFactory(cell -> cell.getValue().lectureMajorProperty());
-		lectureCollegeColumn.setCellValueFactory(cell -> cell.getValue().lectureMajorProperty());
+		lectureCollegeColumn.setCellValueFactory(cell -> cell.getValue().lectureCollegeProperty());
 	}
 	
 	public void setSearchLayoutController(SearchLayoutController ctl)
