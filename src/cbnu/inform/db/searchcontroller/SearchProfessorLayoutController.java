@@ -1,18 +1,11 @@
 package cbnu.inform.db.searchcontroller;
 
-import java.io.IOException;
-
-import cbnu.inform.db.MainApp;
 import cbnu.inform.db.model.ProfessorData;
-import cbnu.inform.db.model.StudentData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.AnchorPane;
 
 public class SearchProfessorLayoutController {
 

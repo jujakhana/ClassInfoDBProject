@@ -1,19 +1,11 @@
 package cbnu.inform.db.controller;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
-import com.sun.media.jfxmedia.events.NewFrameEvent;
-
 import cbnu.inform.db.dao.DaoSelectClassAll;
 import cbnu.inform.db.model.InfoData;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.IntegerBinding;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;

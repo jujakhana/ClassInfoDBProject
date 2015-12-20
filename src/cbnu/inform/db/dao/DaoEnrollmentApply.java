@@ -2,7 +2,6 @@ package cbnu.inform.db.dao;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 import cbnu.inform.db.model.ApplyData;

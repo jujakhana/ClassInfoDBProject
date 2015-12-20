@@ -2,17 +2,9 @@ package cbnu.inform.db;
 
 import java.io.IOException;
 
-import cbnu.inform.db.controller.MainOverviewController;
-import cbnu.inform.db.model.RegisterData;
-import cbnu.inform.db.registercontroller.RegisterLayoutController;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
