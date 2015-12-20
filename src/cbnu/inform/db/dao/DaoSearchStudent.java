@@ -1,7 +1,5 @@
 package cbnu.inform.db.dao;
 
-
-import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,11 +19,27 @@ public class DaoSearchStudent {
 		ResultSet result = null;
 
 		String select;
-
 		try {
 			stmt = dbConnection.createStatement();
-			result = stmt.executeQuery("select * from classinfo.student where idNumber = " + Integer.parseInt(value));
-	
+			//result = stmt.executeQuery("select * from classinfo.student where idNumber = " + Integer.parseInt(value));
+			if(s.equals("학번")){
+				select = "idNumber";
+				result = stmt.executeQuery("select * from classinfo.student where "+select+ " = " +Integer.parseInt(value));
+			}
+			else if(s.equals("이름")){
+				select = "name";
+				result = stmt.executeQuery("select * from classinfo.student where "+select+ " = '" +value +"'");
+			}else if(s.equals("전공")){
+				
+			}else if(s.equals("학년")){
+				select = "grade";
+			result = stmt.executeQuery("select * from classinfo.student where "+select+ " = " +Integer.parseInt(value));
+				
+			}else if(s.equals("대학")){
+				select = "collage";
+				result = stmt.executeQuery("select * from classinfo.student where "+select+ " = '" +value +"'");
+			}
+			
 			while(result.next())
 			{
 				StudentData studentData = new StudentData();
@@ -47,10 +61,5 @@ public class DaoSearchStudent {
 		System.out.println(stDataList.size());
 		return stDataList;
 
-	}
-
-	private static String toLatin1(String str) throws UnsupportedEncodingException {
-
-		return new String(str.getBytes(""), "8859_1");
 	}
 }

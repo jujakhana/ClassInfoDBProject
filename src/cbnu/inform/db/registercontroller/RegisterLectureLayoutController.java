@@ -39,8 +39,8 @@ public class RegisterLectureLayoutController implements IRegisterLayout{
 	private void handleRegisterButton(){
 		LectureData lecture = new LectureData();
 		if(isInputValid()){
-			lecture.setLectureName(lectureNameTextField.getText());
 			lecture.setLectureNumber(Integer.parseInt(lectureNumberTextField.getText()));
+			lecture.setLectureName(lectureNameTextField.getText());
 			lecture.setLectureMajor(lectureMajorTextField.getText());
 			lecture.setLectureCollege(lectureCollegeTextField.getText());
 			

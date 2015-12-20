@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cbnu.inform.db.MainApp;
+import cbnu.inform.db.dao.DaoSearchLecture;
 import cbnu.inform.db.dao.DaoSearchProfessor;
 import cbnu.inform.db.dao.DaoSearchStudent;
 import cbnu.inform.db.log.InvalidDataCheck;
@@ -16,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -29,14 +31,14 @@ public class SearchLayoutController {
 
 	@FXML
 	private SplitPane pane;
-	
+
 	@FXML
 	private TextField textField;
 
 	SearchLectureLayoutController lectureController;
 	SearchProfessorLayoutController professorContorller;
 	SearchStudentLayoutController studentController;
-	
+
 	private List<String> studentList;
 	private List<String> professorList;
 	private List<String> lectureList;
@@ -44,18 +46,18 @@ public class SearchLayoutController {
 	private String firstSelectedInfo;
 	private String secondSelectedInfo;
 	private String inputText;
-	
+
 	private ObservableList<StudentData> studentDataList;
 	private ObservableList<LectureData> lectureDataList;
 	private ObservableList<ProfessorData> professorDataList;
-	
+
 	public SearchLayoutController() {
 		// TODO Auto-generated constructor stub
-		
+
 		studentController = new SearchStudentLayoutController();
 		lectureController = new SearchLectureLayoutController();
 		professorContorller = new SearchProfessorLayoutController();
-		
+
 		firstComboBox = new ComboBox<String>();
 		secondComboBox = new ComboBox<String>();
 
@@ -114,23 +116,27 @@ public class SearchLayoutController {
 		firstSelectedInfo = firstComboBox.getSelectionModel().getSelectedItem();
 		secondSelectedInfo = secondComboBox.getSelectionModel().getSelectedItem();
 		inputText = textField.getText();
-		
-		if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo)
+
+		if (InvalidDataCheck.isStringValid("검색", firstSelectedInfo)
 				&& InvalidDataCheck.isStringValid("검색", secondSelectedInfo)
-				&& InvalidDataCheck.isStringValid("내용 입력", inputText)){
-			
-			if(firstSelectedInfo.equals("학생")){
-				setStudentSearchLayout();
+				&& InvalidDataCheck.isStringValid("내용 입력", inputText)) {
+
+			if (firstSelectedInfo.equals("학생")) {
 				studentDataList = DaoSearchStudent.searchStudentDao(secondSelectedInfo, inputText);
+				setStudentSearchLayout();
+				
+				
 				System.out.println(studentDataList.size());
-			} else if(firstSelectedInfo.equals("교과")){
+			} else if (firstSelectedInfo.equals("교과")) {
+				lectureDataList = DaoSearchLecture.searchLectureDao(secondSelectedInfo, inputText);
 				setLectureSearchLayout();
-				DaoSearchProfessor.searchProfessorDao(secondSelectedInfo, inputText);
-			}else if(firstSelectedInfo.equals("교수")){
+				
+
+			} else if (firstSelectedInfo.equals("교수")) {
+				professorDataList = DaoSearchProfessor.searchProfessorDao(secondSelectedInfo, inputText);
 				setProfessorSearchLayout();
-				professorContorller.setProfessorSearchLayout(pane);
-				DaoSearchProfessor.searchProfessorDao(secondSelectedInfo, inputText);
-			}	
+				
+			}
 		}
 	}
 
@@ -138,30 +144,29 @@ public class SearchLayoutController {
 	private void handleAllSearchButton() {
 		firstSelectedInfo = firstComboBox.getSelectionModel().getSelectedItem();
 		secondSelectedInfo = secondComboBox.getSelectionModel().getSelectedItem();
-		
-		if(InvalidDataCheck.isStringValid("검색", firstSelectedInfo))
-		{
-			if(firstSelectedInfo.equals("학생")){
+
+		if (InvalidDataCheck.isStringValid("검색", firstSelectedInfo)) {
+			if (firstSelectedInfo.equals("학생")) {
 				setStudentSearchLayout();
-			} else if(firstSelectedInfo.equals("교과")){
-				lectureController.setLectureSearchLayout(pane);
-			}else if(firstSelectedInfo.equals("교수")){
-				professorContorller.setProfessorSearchLayout(pane);
-			}	
+			} else if (firstSelectedInfo.equals("교과")) {
+				setLectureSearchLayout();
+			} else if (firstSelectedInfo.equals("교수")) {
+				setProfessorSearchLayout();
+			}
 		}
 	}
-	
+
 	public ObservableList<StudentData> getStudentData() {
-        return studentDataList;
-    }
-	
+		return studentDataList;
+	}
+
 	public ObservableList<ProfessorData> getProfessorData() {
-        return professorDataList;
-    }
-	
+		return professorDataList;
+	}
+
 	public ObservableList<LectureData> getLectureData() {
-        return lectureDataList;
-    }
+		return lectureDataList;
+	}
 
 	public void setStudentSearchLayout() {
 		try {
@@ -170,15 +175,15 @@ public class SearchLayoutController {
 			AnchorPane anchorPane;
 			anchorPane = (AnchorPane) loader.load();
 			pane.getItems().set(1, anchorPane);
-			
+
 			SearchStudentLayoutController controller = loader.getController();
-	        controller.setSearchLayoutController(this);
+			controller.setSearchLayoutController(this);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void setLectureSearchLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -186,25 +191,27 @@ public class SearchLayoutController {
 			AnchorPane anchorPane;
 			anchorPane = (AnchorPane) loader.load();
 			pane.getItems().set(1, anchorPane);
-			
+
 			SearchLectureLayoutController controller = loader.getController();
-	        controller.setSearchLayoutController(this);
+			controller.setSearchLayoutController(this);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void setProfessorSearchLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("view/SearchProfessorLayout.fxml"));
 			AnchorPane anchorPane;
 			anchorPane = (AnchorPane) loader.load();
+	
 			pane.getItems().set(1, anchorPane);
 			
 			SearchProfessorLayoutController controller = loader.getController();
-	        controller.setSearchLayoutController(this);
+			controller.setSearchLayoutController(this);
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

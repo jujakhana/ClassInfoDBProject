@@ -12,11 +12,9 @@ import javafx.collections.ObservableList;
 public class DaoSearchProfessor {
 
 	public static ObservableList<ProfessorData> searchProfessorDao(String s, String value){
-		
-		ObservableList<ProfessorData> proDataList = FXCollections.observableArrayList();
-		ProfessorData proData = new ProfessorData();
-		
+
 		Connection dbConnection  = DaoDBConnection.tryConnect();
+		ObservableList<ProfessorData> proDataList = FXCollections.observableArrayList();
 		
 		Statement stmt =null;
 		ResultSet result =null;
@@ -26,34 +24,27 @@ public class DaoSearchProfessor {
 		try{	
 			stmt = dbConnection.createStatement();
 
-			switch (s)
-			{
-			case "교수명" :
-				select = "name";				
-				result = stmt.executeQuery("select * from classinfo.student where " 
-						+  select +" = '" + value + "')");
-				break;
-			case "교수번호" :
+			if(s.equals("교수번호")){
 				select = "idNumber";
-				result = stmt.executeQuery("select * from classinfo.student where " 
-						+  select +" = " + Integer.parseInt(value) + ")");
-				break;
-			case "소속학과" :
+				result = stmt.executeQuery("select * from classinfo.professor where "+select+ " = " +Integer.parseInt(value));
+			}
+			else if(s.equals("교수명")){
+				select = "name";
+				result = stmt.executeQuery("select * from classinfo.professor where "+select+ " = '" +value +"'");
+			}else if(s.equals("소속학과")){
 				select = "major";
-				result = stmt.executeQuery("select * from classinfo.student where " 
-						+  select +" = '" + value + "')");
-				break;
-			case "구분" :
-				select = "division";
-				result = stmt.executeQuery("select * from classinfo.student where " 
-						+  select +" = '" + value + "')");
-				break;
+				result = stmt.executeQuery("select * from classinfo.professor where "+select+ " = '" +value +"'");
 				
+			}else if(s.equals("구분")){
+				select = "division";
+				result = stmt.executeQuery("select * from classinfo.professor where "+select+ " = '" +value +"'");
 			}
 		
 			while(result.next()){
-				proData.setProfessorName(result.getString("name"));
+				ProfessorData proData = new ProfessorData();
+				
 				proData.setProfessorNumber(result.getInt("idNumber"));
+				proData.setProfessorName(result.getString("name"));
 				proData.setProfessorMajor(result.getString("major"));
 				proData.setProfessorDivision(result.getString("division"));
 				

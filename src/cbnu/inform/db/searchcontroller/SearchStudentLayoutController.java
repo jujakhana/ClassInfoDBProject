@@ -38,20 +38,13 @@ public class SearchStudentLayoutController {
 	
 	private SearchLayoutController controller;
 	
-	/**
-	 * The constructor
-	 */
-	public SearchStudentLayoutController() {
-		// TODO Auto-generated constructor stub
-		
-		
-	}
 	
-	@FXML
+	
 	/**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
+	@FXML
 	private void initialize(){
 		// Initialize the person table with the five columns.
 		
@@ -60,12 +53,12 @@ public class SearchStudentLayoutController {
 		studentMajorColumn.setCellValueFactory(cellData -> cellData.getValue().studentMajorProperty());
 		studentGradeColumn.setCellValueFactory(cellData -> cellData.getValue().studentGradeProperty().asObject());
 		studentCollegeColumn.setCellValueFactory(cellData -> cellData.getValue().studentCollageProperty());
+
 	}
 	
 	public void setSearchLayoutController(SearchLayoutController ctl)
 	{
 		this.controller = ctl;
-		
 		studentTable.setItems(controller.getStudentData());
 	}
 }

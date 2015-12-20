@@ -7,7 +7,7 @@
 
 <AnchorPane styleClass="table-view" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbnu.inform.db.searchcontroller.SearchLectureLayoutController">
    <children>
-      <TableView fx:id="lectureTableView" prefHeight="210.0" prefWidth="210.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="lectureTableView" editable="true" layoutX="5.0" layoutY="5.0" prefHeight="210.0" prefWidth="210.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
         <columns>
           <TableColumn fx:id="lectureNumberColumn" prefWidth="75.0" text="교과번호" />
           <TableColumn fx:id="lectureNameColumn" prefWidth="75.0" text="교과목명" />

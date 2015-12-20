@@ -39,8 +39,8 @@ public class RegisterProfessorLayoutController implements IRegisterLayout {
 	private void handleRegisterButton(){
 		ProfessorData professor = new ProfessorData();
 		if(isInputValid()){
-			professor.setProfessorName(professorNameTextField.getText());
 			professor.setProfessorNumber(Integer.parseInt(professorNumberTextField.getText()));
+			professor.setProfessorName(professorNameTextField.getText());
 			professor.setProfessorMajor(professorMajorTextField.getText());
 			professor.setProfessorDivision(professorDivisionTextField.getText());
 			
