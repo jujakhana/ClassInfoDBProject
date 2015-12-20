@@ -29,8 +29,10 @@ public class DaoSearchStudent {
 			else if(s.equals("이름")){
 				select = "name";
 				result = stmt.executeQuery("select * from classinfo.student where "+select+ " = '" +value +"'");
-			}else if(s.equals("전공")){
-				
+			}else if(s.equals("학과")){
+				select = "major";
+				result = stmt.executeQuery("select * from classinfo.student where "+select+ " = '" +value +"'");
+			
 			}else if(s.equals("학년")){
 				select = "grade";
 			result = stmt.executeQuery("select * from classinfo.student where "+select+ " = " +Integer.parseInt(value));

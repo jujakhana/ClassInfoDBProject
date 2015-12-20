@@ -29,7 +29,7 @@ public class DaoSearchLecture {
 				select = "idNumber";
 				result = stmt.executeQuery(
 						"select * from classinfo.lecture where " + select + " = " + Integer.parseInt(value));
-			} else if (s.equals("교과명")) {
+			} else if (s.equals("과목명")) {
 				select = "name";
 				result = stmt.executeQuery("select * from classinfo.lecture where " + select + " = '" + value + "'");
 			} else if (s.equals("관련학과")) {
