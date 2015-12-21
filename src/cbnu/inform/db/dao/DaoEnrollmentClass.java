@@ -27,7 +27,7 @@ public class DaoEnrollmentClass {
 				System.out.println("입력 실패");
 				return false;
 			}
-		
+
 		} catch (Exception e) {
 			System.out.println("query fail");
 			return false;

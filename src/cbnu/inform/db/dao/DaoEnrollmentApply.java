@@ -21,7 +21,7 @@ public class DaoEnrollmentApply {
 							+ toLatin1(applyData.getProfessorName()) + "' ," + applyData.getProfessorNumber() + ",'"
 							+ toLatin1(applyData.getLectureName()) + "' ," + applyData.getLectureNumber() + " ,'"
 							+ toLatin1(applyData.getClassTime()) + "' ," + applyData.getClassCredit() + ")");
-		
+
 			if (rowCnt == 1) {
 				System.out.println("입력 성공");
 				return true;
@@ -29,7 +29,7 @@ public class DaoEnrollmentApply {
 				System.out.println("입력 실패");
 				return false;
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println("query fail");
 			return false;

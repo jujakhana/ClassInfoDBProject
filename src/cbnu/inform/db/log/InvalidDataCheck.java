@@ -3,8 +3,6 @@ package cbnu.inform.db.log;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-
-
 public class InvalidDataCheck {
 
 	/**

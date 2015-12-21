@@ -91,7 +91,7 @@ public class InfoLayoutController {
 		listTableColumn.add(7, professorColumn);
 		listTableColumn.add(8, lectureTimeColumn);
 
-		//data column initialize
+		// data column initialize
 		studentNameColumn.setCellValueFactory(cell -> cell.getValue().studentNameProperty());
 		studentNumberColumn.setCellValueFactory(cell -> cell.getValue().studentNumberProperty().asObject());
 		majorColumn.setCellValueFactory(cell -> cell.getValue().majorProperty());
@@ -102,9 +102,8 @@ public class InfoLayoutController {
 		professorColumn.setCellValueFactory(cell -> cell.getValue().professorProperty());
 		lectureTimeColumn.setCellValueFactory(cell -> cell.getValue().lectureTimeProperty());
 	}
-	
-	
-	public void setInfoData(ObservableList<InfoData> infoData){
+
+	public void setInfoData(ObservableList<InfoData> infoData) {
 		this.infoData = infoData;
 		infoTableView.setItems(this.infoData);
 	}
@@ -181,11 +180,11 @@ public class InfoLayoutController {
 		for (int i = 0; i < 9; i++) {
 			listTableColumn.get(i).setVisible(checkStatus.get(i));
 		}
-		
+
 		infoData = DaoSelectClassAll.selectClassAllDao();
 		System.out.println(infoData.toString());
 		infoTableView.setItems(infoData);
-	}	
+	}
 
 	private void setCheckBoxAllSelected(boolean set) {
 		studentNameBox.setSelected(set);

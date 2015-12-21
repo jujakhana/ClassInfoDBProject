@@ -102,7 +102,7 @@ public class MainOverviewController {
 		}
 	}
 
-	private void showInfoLayout(){
+	private void showInfoLayout() {
 		try {
 			FXMLLoader infoLoader = new FXMLLoader();
 			infoLoader.setLocation(MainApp.class.getResource("view/InfoLayout.fxml"));
@@ -113,29 +113,24 @@ public class MainOverviewController {
 			e.printStackTrace();
 		}
 	}
-	
 
 	@FXML
-	private void clickRegisterTab()	{
-		showRegisterLayout();	
+	private void clickRegisterTab() {
+		showRegisterLayout();
 	}
-	
+
 	@FXML
-	private void clickDeleteTab(){
+	private void clickDeleteTab() {
 		showDeletelayout();
 	}
-	
+
 	@FXML
-	private void clickSearchLayout(){
+	private void clickSearchLayout() {
 		showSearchLayout();
 	}
 
 	@FXML
-	private void clickInfoLayout(){
+	private void clickInfoLayout() {
 		showInfoLayout();
 	}
 }
-
-
-
-

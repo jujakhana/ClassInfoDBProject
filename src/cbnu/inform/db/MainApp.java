@@ -58,7 +58,6 @@ public class MainApp extends Application {
 			mainOverview = (AnchorPane) loader.load();
 
 			rootLayout.setCenter(mainOverview);
-
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
