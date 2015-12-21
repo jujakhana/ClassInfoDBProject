@@ -38,32 +38,31 @@ public class RegisterClassLayoutController implements IRegisterLayout {
 	@FXML
 	private void handleRegisterButton() {
 		ClassData classData = new ClassData();
-		if(isInputValid()){
+		if (isInputValid()) {
 			classData.setStudentName(studentNameTextField.getText());
 			classData.setStudentNumber(Integer.parseInt(studentNumberTextField.getText()));
 			classData.setLectureNumber(Integer.parseInt(lectureNumberTextField.getText()));
 			classData.setLectureName(lectureNameTextField.getText());
-			
-			//DB 데이터 입력하는 곳
-		
-			if(DaoEnrollmentClass.classEnrollDao(classData))
-				AlertDialog.showAlert("수강신청", "신청이 완료되었습니다.");	
+
+			// DB 데이터 입력하는 곳
+
+			if (DaoEnrollmentClass.classEnrollDao(classData))
+				AlertDialog.showAlert("수강신청", "신청이 완료되었습니다.");
 			else
-				AlertDialog.showAlert("수강신청", "신청이 실패하였습니다.");	
+				AlertDialog.showAlert("수강신청", "신청이 실패하였습니다.");
 			setAllTextFieldClear();
 		}
 	}
-	
+
 	/**
 	 * ClassView's all TextField is clear
 	 */
-	private void setAllTextFieldClear()
-	{
+	private void setAllTextFieldClear() {
 		studentNameTextField.clear();
 		studentNumberTextField.clear();
 		lectureNumberTextField.clear();
 		lectureNameTextField.clear();
-		
+
 	}
 
 	/**
@@ -86,53 +85,53 @@ public class RegisterClassLayoutController implements IRegisterLayout {
 
 	/**
 	 * Validates the user input in the text fields.
+	 * 
 	 * @return
 	 */
 	private boolean isInputValid() {
-        String errorMessage = "";
+		String errorMessage = "";
 
-        if (studentNameTextField.getText() == null || studentNameTextField.getText().length() == 0) {
-            errorMessage += "학생 이름이 유효하지 않습니다.\n"; 
-        }
-        if (studentNumberTextField.getText() == null || studentNumberTextField.getText().length() == 0) {
-            errorMessage += "학생 학번이 유효하지 않습니다.\n"; 
-        }else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(studentNumberTextField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "학생 학번이 유효하지 않습니다(숫자 입력)!\n"; 
-            }
-        }
-        
-        if (lectureNameTextField.getText() == null || lectureNameTextField.getText().length() == 0) {
-            errorMessage += "수강과목이 유효하지 않습니다.\n"; 
-        }
-        if (lectureNumberTextField.getText() == null || lectureNumberTextField.getText().length() == 0) {
-            errorMessage += "교과번호가 유효하지 않습니다.\n"; 
-        }else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(lectureNumberTextField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "교과번호이 유효하지 않습니다(숫자 입력)!\n"; 
-            }
-        }
-    
+		if (studentNameTextField.getText() == null || studentNameTextField.getText().length() == 0) {
+			errorMessage += "학생 이름이 유효하지 않습니다.\n";
+		}
+		if (studentNumberTextField.getText() == null || studentNumberTextField.getText().length() == 0) {
+			errorMessage += "학생 학번이 유효하지 않습니다.\n";
+		} else {
+			// try to parse the postal code into an int.
+			try {
+				Integer.parseInt(studentNumberTextField.getText());
+			} catch (NumberFormatException e) {
+				errorMessage += "학생 학번이 유효하지 않습니다(숫자 입력)!\n";
+			}
+		}
 
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
-            // Show the error message.
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("데이터 입력 오류");
-            alert.setHeaderText("정확한 정보를 입력해 주세요.");
-            alert.setContentText(errorMessage);
+		if (lectureNameTextField.getText() == null || lectureNameTextField.getText().length() == 0) {
+			errorMessage += "수강과목이 유효하지 않습니다.\n";
+		}
+		if (lectureNumberTextField.getText() == null || lectureNumberTextField.getText().length() == 0) {
+			errorMessage += "교과번호가 유효하지 않습니다.\n";
+		} else {
+			// try to parse the postal code into an int.
+			try {
+				Integer.parseInt(lectureNumberTextField.getText());
+			} catch (NumberFormatException e) {
+				errorMessage += "교과번호이 유효하지 않습니다(숫자 입력)!\n";
+			}
+		}
 
-            alert.showAndWait();
+		if (errorMessage.length() == 0) {
+			return true;
+		} else {
+			// Show the error message.
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("데이터 입력 오류");
+			alert.setHeaderText("정확한 정보를 입력해 주세요.");
+			alert.setContentText(errorMessage);
 
-            return false;
-        }
-    }
+			alert.showAndWait();
+
+			return false;
+		}
+	}
 
 }

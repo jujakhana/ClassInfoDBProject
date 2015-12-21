@@ -27,7 +27,6 @@ public class SearchProfessorLayoutController {
 	private ObservableList<ProfessorData> professorData = FXCollections.observableArrayList();
 
 	private SearchLayoutController controller;
-	
 
 	/**
 	 * Initializes the controller class. This method is automatically called
@@ -40,9 +39,8 @@ public class SearchProfessorLayoutController {
 		professorMajorColumn.setCellValueFactory(cellData -> cellData.getValue().professorMajorProperty());
 		professorDivisionColumn.setCellValueFactory(cellData -> cellData.getValue().professorDivisionProperty());
 	}
-	
-	public void setSearchLayoutController(SearchLayoutController ctl)
-	{
+
+	public void setSearchLayoutController(SearchLayoutController ctl) {
 		this.controller = ctl;
 		professorTableView.setItems(controller.getProfessorData());
 	}

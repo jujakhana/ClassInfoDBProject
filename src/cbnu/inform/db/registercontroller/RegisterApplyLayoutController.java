@@ -32,38 +32,35 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 	@FXML
 	Button registerButton;
 
-	
 	/**
 	 * Called when the user clicks on the register button
 	 */
 	@FXML
-	private void handleRegisterButton(){
+	private void handleRegisterButton() {
 		ApplyData apply = new ApplyData();
-		
-		if(isInputValid())
-		{
+
+		if (isInputValid()) {
 			apply.setProfessorName(professorNameTextField.getText());
 			apply.setProfessorNumber(Integer.parseInt(professorNumberTextField.getText()));
 			apply.setLectureNumber(Integer.parseInt(lectureNumberTextField.getText()));
 			apply.setLectureName(lectureNameTextField.getText());
 			apply.setClassTime(classTimeTextField.getText());
 			apply.setClassCredit(Integer.parseInt(classCreditTextField.getText()));
-			//DataBase...
+			// DataBase...
 
-			if(DaoEnrollmentApply.applyEnrollDao(apply))
-				AlertDialog.showAlert("강좌등록", "등록이 완료되었습니다.");	
+			if (DaoEnrollmentApply.applyEnrollDao(apply))
+				AlertDialog.showAlert("강좌등록", "등록이 완료되었습니다.");
 			else
-				AlertDialog.showAlert("강좌등록", "등록에 실패하였습니다.");	
-			
+				AlertDialog.showAlert("강좌등록", "등록에 실패하였습니다.");
+
 			setAllTextFieldClear();
 		}
 	}
-	
+
 	/**
 	 * ApplyView's all TextField is clear
 	 */
-	private void setAllTextFieldClear()
-	{
+	private void setAllTextFieldClear() {
 		professorNameTextField.clear();
 		professorNumberTextField.clear();
 		lectureNumberTextField.clear();
@@ -71,7 +68,7 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 		classTimeTextField.clear();
 		classCreditTextField.clear();
 	}
-	
+
 	/**
 	 * Set RegisterApplyLayout in SplitPane of RegisterLayout
 	 */
@@ -90,67 +87,68 @@ public class RegisterApplyLayoutController implements IRegisterLayout {
 		}
 
 	}
-	
+
 	/**
 	 * Validates the user input in the text fields.
+	 * 
 	 * @return
 	 */
 	private boolean isInputValid() {
-        String errorMessage = "";
+		String errorMessage = "";
 
-        if (professorNameTextField.getText() == null || professorNameTextField.getText().length() == 0) {
-            errorMessage += "교수 이름이 유효하지 않습니다.\n"; 
-        }
-        if (professorNumberTextField.getText() == null || professorNumberTextField.getText().length() == 0) {
-            errorMessage += "교수 번호가 유효하지 않습니다.\n"; 
-        }else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(professorNumberTextField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "교수 번호가 유효하지 않습니다(숫자 입력)!\n"; 
-            }
-        }
-        if (lectureNameTextField.getText() == null || lectureNameTextField.getText().length() == 0) {
-            errorMessage += "교과목 명이 유효하지 않습니다.\n"; 
-        }
-        if (lectureNumberTextField.getText() == null || lectureNumberTextField.getText().length() == 0) {
-            errorMessage += "교과번호가 유효하지 않습니다.\n"; 
-        }else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(lectureNumberTextField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "교과번호가 유효하지 않습니다(숫자 입력)!\n"; 
-            }
-        }
-        if (classTimeTextField.getText() == null || classTimeTextField.getText().length() == 0) {
-            errorMessage += "수업시간이 유효하지 않습니다.\n"; 
-        }
-        if (classCreditTextField.getText() == null || classCreditTextField.getText().length() == 0) {
-            errorMessage += "학점이 유효하지 않습니다.\n"; 
-        }else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(classCreditTextField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "학점이 유효하지 않습니다(숫자 입력)!\n"; 
-            }
-        }
-    
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
-            // Show the error message.
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("데이터 입력 오류");
-            alert.setHeaderText("정확한 정보를 입력해 주세요.");
-            alert.setContentText(errorMessage);
+		if (professorNameTextField.getText() == null || professorNameTextField.getText().length() == 0) {
+			errorMessage += "교수 이름이 유효하지 않습니다.\n";
+		}
+		if (professorNumberTextField.getText() == null || professorNumberTextField.getText().length() == 0) {
+			errorMessage += "교수 번호가 유효하지 않습니다.\n";
+		} else {
+			// try to parse the postal code into an int.
+			try {
+				Integer.parseInt(professorNumberTextField.getText());
+			} catch (NumberFormatException e) {
+				errorMessage += "교수 번호가 유효하지 않습니다(숫자 입력)!\n";
+			}
+		}
+		if (lectureNameTextField.getText() == null || lectureNameTextField.getText().length() == 0) {
+			errorMessage += "교과목 명이 유효하지 않습니다.\n";
+		}
+		if (lectureNumberTextField.getText() == null || lectureNumberTextField.getText().length() == 0) {
+			errorMessage += "교과번호가 유효하지 않습니다.\n";
+		} else {
+			// try to parse the postal code into an int.
+			try {
+				Integer.parseInt(lectureNumberTextField.getText());
+			} catch (NumberFormatException e) {
+				errorMessage += "교과번호가 유효하지 않습니다(숫자 입력)!\n";
+			}
+		}
+		if (classTimeTextField.getText() == null || classTimeTextField.getText().length() == 0) {
+			errorMessage += "수업시간이 유효하지 않습니다.\n";
+		}
+		if (classCreditTextField.getText() == null || classCreditTextField.getText().length() == 0) {
+			errorMessage += "학점이 유효하지 않습니다.\n";
+		} else {
+			// try to parse the postal code into an int.
+			try {
+				Integer.parseInt(classCreditTextField.getText());
+			} catch (NumberFormatException e) {
+				errorMessage += "학점이 유효하지 않습니다(숫자 입력)!\n";
+			}
+		}
 
-            alert.showAndWait();
+		if (errorMessage.length() == 0) {
+			return true;
+		} else {
+			// Show the error message.
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("데이터 입력 오류");
+			alert.setHeaderText("정확한 정보를 입력해 주세요.");
+			alert.setContentText(errorMessage);
 
-            return false;
-        }
-    }
+			alert.showAndWait();
+
+			return false;
+		}
+	}
 
 }

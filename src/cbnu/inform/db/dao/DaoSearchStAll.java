@@ -11,22 +11,21 @@ import javafx.collections.ObservableList;
 
 public class DaoSearchStAll {
 
-	public static ObservableList<StudentData> searchStAll(){
-		
+	public static ObservableList<StudentData> searchStAll() {
+
 		Connection dbConnection = DaoDBConnection.tryConnect();
 		ObservableList<StudentData> stDList = FXCollections.observableArrayList();
-		
+
 		Statement stmt = null;
 		ResultSet result = null;
-		
+
 		try {
 
 			stmt = dbConnection.createStatement();
 			result = stmt.executeQuery("select * from classinfo.student");
-			while(result.next())
-			{
+			while (result.next()) {
 				StudentData studentData = new StudentData();
-				
+
 				studentData.setStudentName(result.getString("name"));
 				studentData.setStudentNumber(result.getInt("idNumber"));
 				studentData.setStudentMajor(result.getString("major"));
@@ -35,13 +34,11 @@ public class DaoSearchStAll {
 
 				stDList.add(studentData);
 			}
-		} catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			System.out.println("q f" + e.getMessage() + " / " + e.getSQLState() + " / " + e.getErrorCode());
 			return null;
 		}
-		
-	
+
 		return stDList;
 	}
 }

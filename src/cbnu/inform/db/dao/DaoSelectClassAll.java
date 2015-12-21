@@ -11,24 +11,23 @@ import javafx.collections.ObservableList;
 
 public class DaoSelectClassAll {
 
-	public static ObservableList<InfoData> selectClassAllDao(){
+	public static ObservableList<InfoData> selectClassAllDao() {
 
 		ObservableList<InfoData> infoDataList = FXCollections.observableArrayList();
-		
-		
-		Connection dbConnection  = DaoDBConnection.tryConnect();
-		
-		Statement stmt =null;
-		ResultSet result =null;
-		
-		try{
+
+		Connection dbConnection = DaoDBConnection.tryConnect();
+
+		Statement stmt = null;
+		ResultSet result = null;
+
+		try {
 			stmt = dbConnection.createStatement();
 			result = stmt.executeQuery("select  name, idNumber, major, grade, collage,pLecName,"
 					+ " pLecNum, pName, classTime from classinfo.student s, "
 					+ "classinfo.classallinfo c, classinfo.apply a "
 					+ "where s.idNumber = c.sNumber and a.pLecNum = c.lecNumber;");
-			
-			while(result.next()){
+
+			while (result.next()) {
 				InfoData infoData = new InfoData();
 				infoData.setStudentName(result.getString("name"));
 				infoData.setStudentNumber(result.getInt("idNumber"));
@@ -39,16 +38,15 @@ public class DaoSelectClassAll {
 				infoData.setLectureNumber(result.getInt("pLecNum"));
 				infoData.setProfessor(result.getString("pName"));
 				infoData.setLectureTime(result.getString("classTime"));
-				
+
 				infoDataList.add(infoData);
 			}
-			
-		} catch(SQLException e){
+
+		} catch (SQLException e) {
 			System.out.println("q f" + e.getMessage());
 			return null;
 		}
 
-		
 		return infoDataList;
 	}
 }

@@ -5,19 +5,30 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="220.0" prefWidth="425.0" styleClass="table-view" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbnu.inform.db.searchcontroller.SearchStudentLayoutController">
-   <children>
-      <TableView fx:id="studentTable" editable="true" prefHeight="508.0" prefWidth="1000.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <columns>
-          <TableColumn fx:id="studentNameColumn" prefWidth="75.0" text="이름" />
-          <TableColumn fx:id="studentNumberColumn" prefWidth="75.0" text="학번" />
-            <TableColumn fx:id="studentMajorColumn" prefWidth="75.0" text="학과" />
-            <TableColumn fx:id="studentGradeColumn" prefWidth="75.0" text="학년" />
-            <TableColumn fx:id="studentCollegeColumn" prefWidth="75.0" text="대학" />
-        </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-   </children>
+<AnchorPane prefHeight="220.0" prefWidth="425.0" styleClass="table-view"
+	stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="cbnu.inform.db.searchcontroller.SearchStudentLayoutController">
+	<children>
+		<TableView fx:id="studentTable" editable="true" prefHeight="508.0"
+			prefWidth="1000.0" tableMenuButtonVisible="true"
+			AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+			AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<columns>
+				<TableColumn fx:id="studentNameColumn" prefWidth="75.0"
+					text="이름" />
+				<TableColumn fx:id="studentNumberColumn" prefWidth="75.0"
+					text="학번" />
+				<TableColumn fx:id="studentMajorColumn" prefWidth="75.0"
+					text="학과" />
+				<TableColumn fx:id="studentGradeColumn" prefWidth="75.0"
+					text="학년" />
+				<TableColumn fx:id="studentCollegeColumn" prefWidth="75.0"
+					text="대학" />
+			</columns>
+			<columnResizePolicy>
+				<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+			</columnResizePolicy>
+		</TableView>
+	</children>
 </AnchorPane>

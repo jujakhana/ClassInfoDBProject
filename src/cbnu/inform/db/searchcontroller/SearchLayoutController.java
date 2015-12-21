@@ -126,18 +126,16 @@ public class SearchLayoutController {
 			if (firstSelectedInfo.equals("학생")) {
 				studentDataList = DaoSearchStudent.searchStudentDao(secondSelectedInfo, inputText);
 				setStudentSearchLayout();
-				
-				
+
 				System.out.println(studentDataList.size());
 			} else if (firstSelectedInfo.equals("교과")) {
 				lectureDataList = DaoSearchLecture.searchLectureDao(secondSelectedInfo, inputText);
 				setLectureSearchLayout();
-				
 
 			} else if (firstSelectedInfo.equals("교수")) {
 				professorDataList = DaoSearchProfessor.searchProfessorDao(secondSelectedInfo, inputText);
 				setProfessorSearchLayout();
-				
+
 			}
 		}
 	}
@@ -151,7 +149,7 @@ public class SearchLayoutController {
 			if (firstSelectedInfo.equals("학생")) {
 				studentDataList = DaoSearchStAll.searchStAll();
 				setStudentSearchLayout();
-				
+
 			} else if (firstSelectedInfo.equals("교과")) {
 				professorDataList = DaoSearchProAll.searchProAll();
 				setLectureSearchLayout();
@@ -212,9 +210,9 @@ public class SearchLayoutController {
 			loader.setLocation(MainApp.class.getResource("view/SearchProfessorLayout.fxml"));
 			AnchorPane anchorPane;
 			anchorPane = (AnchorPane) loader.load();
-	
+
 			pane.getItems().set(1, anchorPane);
-			
+
 			SearchProfessorLayoutController controller = loader.getController();
 			controller.setSearchLayoutController(this);
 

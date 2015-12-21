@@ -15,39 +15,37 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
 public class SearchStudentLayoutController {
-	
+
 	@FXML
 	private TableView<StudentData> studentTable;
-	
+
 	@FXML
 	private TableColumn<StudentData, String> studentNameColumn;
-	
+
 	@FXML
 	private TableColumn<StudentData, Integer> studentNumberColumn;
-	
+
 	@FXML
 	private TableColumn<StudentData, String> studentMajorColumn;
-	
+
 	@FXML
 	private TableColumn<StudentData, Integer> studentGradeColumn;
-	
+
 	@FXML
 	private TableColumn<StudentData, String> studentCollegeColumn;
-	
+
 	private ObservableList<StudentData> studentDataList = FXCollections.observableArrayList();
-	
+
 	private SearchLayoutController controller;
-	
-	
-	
+
 	/**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
-     */
+	 * Initializes the controller class. This method is automatically called
+	 * after the fxml file has been loaded.
+	 */
 	@FXML
-	private void initialize(){
+	private void initialize() {
 		// Initialize the person table with the five columns.
-		
+
 		studentNameColumn.setCellValueFactory(cellData -> cellData.getValue().studentNameProperty());
 		studentNumberColumn.setCellValueFactory(cellData -> cellData.getValue().studentNumberProperty().asObject());
 		studentMajorColumn.setCellValueFactory(cellData -> cellData.getValue().studentMajorProperty());
@@ -55,9 +53,8 @@ public class SearchStudentLayoutController {
 		studentCollegeColumn.setCellValueFactory(cellData -> cellData.getValue().studentCollageProperty());
 
 	}
-	
-	public void setSearchLayoutController(SearchLayoutController ctl)
-	{
+
+	public void setSearchLayoutController(SearchLayoutController ctl) {
 		this.controller = ctl;
 		studentTable.setItems(controller.getStudentData());
 	}

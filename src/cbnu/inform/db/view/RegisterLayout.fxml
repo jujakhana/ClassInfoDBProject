@@ -5,15 +5,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="201.0" prefWidth="372.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbnu.inform.db.registercontroller.RegisterLayoutController">
+<AnchorPane prefHeight="201.0" prefWidth="372.0" styleClass="background"
+	stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbnu.inform.db.registercontroller.RegisterLayoutController">
 	<children>
-		<SplitPane fx:id="splitPane" dividerPositions="0.2956989247311828" prefHeight="201.0" prefWidth="372.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+		<SplitPane fx:id="splitPane" dividerPositions="0.2956989247311828"
+			prefHeight="201.0" prefWidth="372.0" styleClass="background"
+			AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+			AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<items>
-				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="table-view">
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+					prefWidth="100.0" styleClass="table-view">
 					<children>
-						<TableView fx:id="regListTable" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="105.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+						<TableView fx:id="regListTable" layoutX="10.0" layoutY="10.0"
+							prefHeight="200.0" prefWidth="105.0" AnchorPane.bottomAnchor="0.0"
+							AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+							AnchorPane.topAnchor="0.0">
 							<columns>
-								<TableColumn fx:id="regListColumn" minWidth="-1.0" text="목록" />
+								<TableColumn fx:id="regListColumn" minWidth="-1.0"
+									text="목록" />
 							</columns>
 							<columnResizePolicy>
 								<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -21,7 +31,8 @@
 						</TableView>
 					</children>
 				</AnchorPane>
-            <AnchorPane fx:id="registerAnchorPane" prefHeight="200.0" prefWidth="200.0" />
+				<AnchorPane fx:id="registerAnchorPane" prefHeight="200.0"
+					prefWidth="200.0" />
 			</items>
 		</SplitPane>
 	</children>

@@ -10,17 +10,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class DaoSearchLecAll {
-	public static ObservableList<LectureData> searchLecAll(	){
+	public static ObservableList<LectureData> searchLecAll() {
 		ObservableList<LectureData> lecDataList = FXCollections.observableArrayList();
 
 		Connection dbConnection = DaoDBConnection.tryConnect();
 
 		Statement stmt = null;
 		ResultSet result = null;
-		
+
 		try {
 			stmt = dbConnection.createStatement();
-			result = stmt.executeQuery(	"select * from classinfo.lecture ");
+			result = stmt.executeQuery("select * from classinfo.lecture ");
 
 			while (result.next()) {
 				LectureData lectureData = new LectureData();
@@ -31,7 +31,7 @@ public class DaoSearchLecAll {
 
 				lecDataList.add(lectureData);
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			System.out.println("q f" + e.getMessage());
 			return null;
 		}

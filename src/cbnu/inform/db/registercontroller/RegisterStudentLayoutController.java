@@ -15,76 +15,73 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 
-public class RegisterStudentLayoutController implements IRegisterLayout{
-	
+public class RegisterStudentLayoutController implements IRegisterLayout {
+
 	@FXML
 	private AnchorPane registerSLController;
-	
+
 	@FXML
 	private TextField nameTextField;
-	
+
 	@FXML
 	private TextField numberTextField;
-	
+
 	@FXML
 	private TextField majorTextField;
-	
+
 	@FXML
 	private TextField gradeTextField;
-	
+
 	@FXML
 	private TextField collegeTextField;
-	
+
 	@FXML
 	private Button registerButton;
-	
+
 	private MainApp mainApp;
 
-	
 	/**
 	 * Constructor
 	 */
-	public RegisterStudentLayoutController(){
+	public RegisterStudentLayoutController() {
 	}
-	
+
 	/**
-	 * Initializes the controller class.
-	 * This method is automatically called after the fxml file has been loaded.
-	 */	
+	 * Initializes the controller class. This method is automatically called
+	 * after the fxml file has been loaded.
+	 */
 	@FXML
-	private void initialize(){
-		//Initialize the RegisterStudentLayoutController
-		
+	private void initialize() {
+		// Initialize the RegisterStudentLayoutController
+
 	}
-	
+
 	/**
 	 * Called when the user clicks on the register button
 	 */
 	@FXML
-	private void handleRegisterButton(){
+	private void handleRegisterButton() {
 		StudentData studentData = new StudentData();
-		if(isInputValid())
-		{
+		if (isInputValid()) {
 			studentData.setStudentName(nameTextField.getText());
 			studentData.setStudentNumber(Integer.parseInt(numberTextField.getText()));
 			studentData.setStudentMajor(majorTextField.getText());
 			studentData.setStudentGrade(Integer.parseInt(gradeTextField.getText()));
 			studentData.setStudentCollage(collegeTextField.getText());
-		
-			if(DaoEnrollmentStudent.stuendtEnrollDao(studentData))
-				AlertDialog.showAlert("학생등록", "등록이 완료되었습니다.");	
+
+			if (DaoEnrollmentStudent.stuendtEnrollDao(studentData))
+				AlertDialog.showAlert("학생등록", "등록이 완료되었습니다.");
 			else
 				AlertDialog.showAlert("학생등록", "등록에 실패하였습니다.");
-			
+
 			setAllTextFieldClear();
 		}
 	}
-	
+
 	/**
 	 * StudentView's all TextField is clear
 	 */
-	private void setAllTextFieldClear()
-	{
+	private void setAllTextFieldClear() {
 		nameTextField.clear();
 		numberTextField.clear();
 		majorTextField.clear();
@@ -108,51 +105,51 @@ public class RegisterStudentLayoutController implements IRegisterLayout{
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Validates the user input in the text fields.
+	 * 
 	 * @return
 	 */
 	private boolean isInputValid() {
-        String errorMessage = "";
+		String errorMessage = "";
 
-        if (nameTextField.getText() == null || nameTextField.getText().length() == 0) {
-            errorMessage += "이름이 유효하지 않습니다.\n"; 
-        }
-        if (numberTextField.getText() == null || numberTextField.getText().length() == 0) {
-            errorMessage += "학번이 유효하지 않습니다.\n"; 
-        }else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(numberTextField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "학번이 유효하지 않습니다(숫자 입력)!\n"; 
-            }
-        }
-        if (majorTextField.getText() == null || majorTextField.getText().length() == 0) {
-            errorMessage += "학과가 유효하지 않습니다.\n"; 
-        }
-        if (gradeTextField.getText() == null || gradeTextField.getText().length() == 0) {
-            errorMessage += "학년이 유효하지 않습니다.\n"; 
-        }
-        if (collegeTextField.getText() == null || collegeTextField.getText().length() == 0) {
-            errorMessage += "대학이 유효하지 않습니다.\n"; 
-        }
-    
+		if (nameTextField.getText() == null || nameTextField.getText().length() == 0) {
+			errorMessage += "이름이 유효하지 않습니다.\n";
+		}
+		if (numberTextField.getText() == null || numberTextField.getText().length() == 0) {
+			errorMessage += "학번이 유효하지 않습니다.\n";
+		} else {
+			// try to parse the postal code into an int.
+			try {
+				Integer.parseInt(numberTextField.getText());
+			} catch (NumberFormatException e) {
+				errorMessage += "학번이 유효하지 않습니다(숫자 입력)!\n";
+			}
+		}
+		if (majorTextField.getText() == null || majorTextField.getText().length() == 0) {
+			errorMessage += "학과가 유효하지 않습니다.\n";
+		}
+		if (gradeTextField.getText() == null || gradeTextField.getText().length() == 0) {
+			errorMessage += "학년이 유효하지 않습니다.\n";
+		}
+		if (collegeTextField.getText() == null || collegeTextField.getText().length() == 0) {
+			errorMessage += "대학이 유효하지 않습니다.\n";
+		}
 
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
-            // Show the error message.
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("데이터 오류");
-            alert.setHeaderText("정확한 정보를 입력해 주세요.");
-            alert.setContentText(errorMessage);
+		if (errorMessage.length() == 0) {
+			return true;
+		} else {
+			// Show the error message.
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("데이터 오류");
+			alert.setHeaderText("정확한 정보를 입력해 주세요.");
+			alert.setContentText(errorMessage);
 
-            alert.showAndWait();
+			alert.showAndWait();
 
-            return false;
-        }
-    }
-	
+			return false;
+		}
+	}
+
 }
