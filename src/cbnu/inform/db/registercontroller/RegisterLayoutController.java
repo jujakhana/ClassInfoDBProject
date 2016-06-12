@@ -9,7 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * Controll RegisterApllyLayout
+ * Control RegisterApllyLayout
  */
 public class RegisterLayoutController {
 
@@ -66,15 +66,15 @@ public class RegisterLayoutController {
 	}
 
 	private void showRegisterLayoutDetails(RegisterData reg) {
-		if (reg.getRegList().equals("ÇÐ»ýµî·Ï")) {
+		if (reg.getRegList().equals("ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½")) {
 			studentController.setView(splitPane);
-		} else if (reg.getRegList().equals("°ú¸ñµî·Ï")) {
+		} else if (reg.getRegList().equals("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")) {
 			lectureController.setView(splitPane);
-		} else if (reg.getRegList().equals("±³¼öµî·Ï")) {
+		} else if (reg.getRegList().equals("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")) {
 			professorController.setView(splitPane);
-		} else if (reg.getRegList().equals("¼ö°­½ÅÃ»")) {
+		} else if (reg.getRegList().equals("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»")) {
 			classController.setView(splitPane);
-		} else if (reg.getRegList().equals("°­ÁÂµî·Ï")) {
+		} else if (reg.getRegList().equals("ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½")) {
 			applyController.setView(splitPane);
 		}
 	}
